@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alive Flowers are watching you</title>
+  <link rel="stylesheet" href="./static/styles.css">
+</head>
+<body>
+  <main>
+    <a href="https://tsum.ua/" class="logo">
+      <img src="./static/logo.svg" alt="ЦУМ">
+    </a>
+    <div class="info">
+      <p>За мить ти відчуєш себе художником.</p>
+      <h3>РОЗФАРБУЙ МЕНЕ!</h3>
+      <img class="qr-code" src="./static/qr-code.svg" alt="">
+      <p class="android-info">Підійди до мене ближче та скануй QR-код.</p>
+      <form method="get" action="__FAS_CALLBACK_URL__">
+        <input type="hidden" name="tok" value="__FAS_TOK__">
+        <input type="hidden" name="redir" value="__FAS_REDIRECT_URL__">
+        <input type="submit" id="button">
+        <label for="button" class="button">
+          Розпочати
+        </label>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,542 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"mq",
+				"mqtt-bridge-ibeacon"
+			],
+			[
+				"device",
+				"device_tracker"
+			],
+			[
+				"M",
+				"MYA_DOMAIN"
+			],
+			[
+				"privt",
+				"private"
+			],
+			[
+				"keep",
+				"keepLast"
+			],
+			[
+				"be",
+				"backend"
+			],
+			[
+				"vide",
+				"videoroom_external_ip"
+			],
+			[
+				"aws_rot",
+				"aws_route53_record\taws_route53_record"
+			],
+			[
+				"jan",
+				"janus_docker_image"
+			],
+			[
+				"jane",
+				"janus_docker_host"
+			],
+			[
+				"janus",
+				"janus_docker_host"
+			],
+			[
+				"ma",
+				"main-vpc"
+			],
+			[
+				"p",
+				"p"
+			],
+			[
+				"tur",
+				"turn_ports"
+			],
+			[
+				"aws_subnet",
+				"aws_subnet_public_name"
+			],
+			[
+				"var",
+				"variable\tvariable (inferred type)"
+			],
+			[
+				"vari",
+				"variableE\tvariable (empty)"
+			],
+			[
+				"s",
+				"stable"
+			],
+			[
+				"re",
+				"repository"
+			],
+			[
+				"CI",
+				"CI_COMMIT_BRANCH"
+			],
+			[
+				"docker",
+				"docker_build"
+			],
+			[
+				"doc",
+				"docker_build"
+			],
+			[
+				"dock",
+				"docker_build_ceon"
+			],
+			[
+				"local",
+				"locals"
+			],
+			[
+				"aft",
+				"after_script"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"gra",
+				"grafana-mysql"
+			],
+			[
+				"mysql",
+				"mysql"
+			],
+			[
+				"ex",
+				"extends"
+			],
+			[
+				"gitlab_",
+				"gitlab_runner_token"
+			],
+			[
+				"repo",
+				"repositories"
+			],
+			[
+				"get",
+				"getenv"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"env",
+				"environments"
+			],
+			[
+				"KUBE_",
+				"KUBE_CONTEXT"
+			],
+			[
+				"KUBEC_",
+				"KUBE_CONTEXT_DEV"
+			],
+			[
+				"m",
+				"microservices"
+			],
+			[
+				"git",
+				"gitlab_build_runner"
+			],
+			[
+				"sla",
+				"slack_token"
+			],
+			[
+				"KUBE",
+				"KUBECONFIG_FILE"
+			],
+			[
+				"pro",
+				"project_name"
+			],
+			[
+				"GI",
+				"GITHUB_REF"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "PlatformIO",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"PlatformIO",
+					""
+				],
+				[
+					"PlatformIO",
+					"Build"
+				],
+				[
+					"PlatformIO",
+					"Upload"
+				],
+				[
+					"PlatformIO",
+					"Clean"
+				],
+				[
+					"PlatformIO",
+					"Test"
+				],
+				[
+					"PlatformIO",
+					"Upload SPIFFS image"
+				],
+				[
+					"PlatformIO",
+					"Update platforms and libraries"
+				],
+				[
+					"PlatformIO",
+					"Upgrade PlatformIO Core"
+				]
+			],
+			[
+				"PlatformIO",
+				"Upload"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/mqtt-agent",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/mqtt-agent/src"
+	],
+	"file_history":
+	[
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/mqtt-agent/src/config.h",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/mqtt-agent/src/mqtt_esp8266_light.ino",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/mqtt-agent/platformio.ini",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/.gitignore",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/remote-rgb-led/remote-rgb-led.ino",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/docker-compose.yml",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/access-point/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/captive-portal/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/captive-portal/nodogsplash/nodogsplash.conf",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/mqtt-server/mosquitto.conf",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/captive-portal/nodogsplash/htdocs/splash.css",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/captive-portal/nodogsplash/htdocs/splash.html",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/remote-rgb-led/remote-flowers.ino",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/rgb-led/rgb-led.ino",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/captive-portal/nodogsplash/htdocs/status.html",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/access-point",
+		"/Users/gueux/Projects/MicroLab420/remoteflowers/src/mqtt-server/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/config/configuration.yaml",
+		"/Users/gueux/Projects/MicroLab420/smartresort/docker-compose.yml",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/config/sensors.yaml",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/config/plants.yaml",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/gpio/config.yml",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/gpio/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/gpio/pi-mqtt-gpio/pi_mqtt_gpio/modules/mcp3008.py",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/gpio/pi-mqtt-gpio/pi_mqtt_gpio/__init__.py",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/config/automation.yaml",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/gpio/config.yml",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/config/climate.yaml",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/config/custom_components/gree/climate.py",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/ibeacon/config/mqtt_preferences",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/ibeacon/config/behavior_preferences",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/broker/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/ibeacon/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/registry/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/configuration.yaml",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/ibeacon/mqtt_preferences",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/ibeacon/known_static_addresses",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/gree/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/climate.yaml",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/gree/devices.json",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/gree/run.sh",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/db/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/db/create-hassio-db.sh",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/gree/.docerignore",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/broker/mosquitto.conf",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/custom_components/gree/manifest.json",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/.dockerignore",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/custom_components/gree/climate.py",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/custom_components/gree/__init__.py",
+		"/Users/gueux/Projects/MicroLab420/smartresort/.gitignore",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/gree-hvac/run.sh",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/prometheus/prometheus.yml",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/grafana/grafana.ini",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/mqtt/bridge/gree-hvac",
+		"/Users/gueux/Projects/MicroLab420/smartresort/src/home-assistant/configuration.yml",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/vpn/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/registry/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/vpn/entry.sh",
+		"/Users/gueux/Projects/MicroLab420/opencloud/docker-compose.yml",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/api/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/api/entry.sh",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/registry/entry.sh",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/s3/run.sh",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/s3/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/s3/templates/credentials.tmpl",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/s3/open-balena-s3.service",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/s3/templates/config.json.tmpl",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/db/balena-entrypoint.sh",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/db/Dockerfile",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/db/create-resin-db.sh",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/s3/scripts/create-buckets.sh",
+		"/Users/gueux/Projects/MicroLab420/opencloud/src/s3/create_buckets.sh",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/helmfile.yaml",
+		"/Users/gueux/Projects/MAN/CompressorSelectionApp/helmfile.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/ui/admin-unit/Dockerfile",
+		"/Users/gueux/Projects/MAN/man-platform/ui/atu-registration/Dockerfile",
+		"/Users/gueux/Projects/MAN/man-platform/ui/ceon/apps/ceon/Dockerfile",
+		"/Users/gueux/Projects/MAN/CompressorSelectionApp/.gitlab-ci.yml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/staging/ceon.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/shared/ceon.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/.gitlab/ci/deploy.gitlab-ci.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/.gitlab-ci.yml",
+		"/Users/gueux/Projects/MAN/man-platform/common/auth/domains.go",
+		"/Users/gueux/Projects/MAN/man-platform/ui/ceon/libs/shared/applications/src/lib/external-links.ts",
+		"/Users/gueux/Projects/MAN/man-platform/services/api/service/paginated.go",
+		"/Users/gueux/Projects/MAN/man-platform/.gitlab/ci/tests.gitlab-ci.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/ui/atu-registration/proxy.config.json",
+		"/Users/gueux/Projects/MAN/man-platform/ui/admin-unit/proxy.config.json",
+		"/Users/gueux/Projects/MAN/man-platform/ui/lib/projects/mya-lib/src/lib/utils/apps/apps.ts",
+		"/Users/gueux/Projects/MAN/man-platform/ui/ceon/proxy.config.stage.json",
+		"/Users/gueux/Projects/MAN/man-platform/ui/ceon/libs/login/domain/src/lib/store/auth.effects.spec.ts",
+		"/Users/gueux/Projects/MAN/man-platform/ui/ceon/libs/e2e-utils/src/lib/support/setup.ts",
+		"/Users/gueux/Projects/MAN/man-platform/ui/ceon/libs/e2e-utils/src/lib/screenplay/actors.ts",
+		"/Users/gueux/Projects/MAN/man-platform/services/auth/utils/mailSender.go",
+		"/Users/gueux/Projects/MAN/man-platform/services/api/service/proxy.go",
+		"/Users/gueux/Projects/MAN/man-platform/e2e/package.json",
+		"/Users/gueux/Projects/MAN/man-platform/e2e/features/step_definitions/authorization_user.steps.ts",
+		"/Users/gueux/Projects/MAN/man-platform/e2e/features/grants/no_grants.feature",
+		"/Users/gueux/Projects/MAN/man-platform/common/config/config.go",
+		"/Users/gueux/Projects/MAN/man-platform/api-tests/test/stage.json",
+		"/Users/gueux/Projects/MAN/man-platform/api-tests/README.md",
+		"/Users/gueux/Projects/MAN/iac-devops/terraform/modules/k8s/provision/vars.tf",
+		"/Users/gueux/Projects/MAN/iac-frontend/terraform/eks/provision.tf",
+		"/Users/gueux/Projects/MAN/iac-frontend/terraform/eks/outputs.tf",
+		"/Users/gueux/Projects/MAN/iac-frontend/terraform/eks/iam4sa.tf",
+		"/Users/gueux/Projects/MAN/iac-frontend/terraform/eks/provision/dns_and_ssl.tf",
+		"/Users/gueux/Projects/MAN/iac-devops/terraform/modules/k8s/provision/dns.tf",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/production/ceon.yaml",
+		"/Users/gueux/Projects/MAN/iac-devops/terraform/dns/certificates.tf",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/preprod/ceon.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/preprod/atu.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/preprod/admin.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/production/admin.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/production/atu.yaml",
+		"/Users/gueux/Projects/MAN/iac-devops/terraform/dns/outputs.tf",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/staging/admin.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/qa/admin.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/ceon/values.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/staging/atu.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/admin/values.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/atu/values.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/review/ceon.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/qa/atu.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/qa/ceon.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/helm-charts/.environments/review/docs.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/.gitlab/ci/compile.gitlab-ci.yaml",
+		"/Users/gueux/Projects/MAN/man-platform/.gitlab/ci/linter.gitlab-ci.yaml"
+	],
+	"find":
+	{
+		"height": 43.0
+	},
+	"find_in_files":
+	{
+		"height": 113.0,
+		"where_history":
+		[
+			"<current file>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"CONFIG_WIFI_PASS",
+			"WIFI",
+			"reconnect",
+			"CONFIG_MQTT_CLIENT_ID",
+			"\\\\n",
+			"reconnect",
+			"PASS",
+			"AUTH",
+			"client",
+			"CONFIG_MQTT_USER"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\n"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.deviot":
+	{
+		"height": 320.0
+	},
+	"output.exec":
+	{
+		"height": 280.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "PlatformIO",
+	"project": "platformio.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 274.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

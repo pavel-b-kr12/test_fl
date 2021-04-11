@@ -1,0 +1,46 @@
+.flowers-field {
+  position: relative;
+  height: 80vw;
+  overflow: hidden;
+  width: 100%;
+}
+.flowers {
+  width: 100%;
+  opacity: 0;
+  transition: all .3s;
+  position: absolute;
+}
+.flowers.active {
+  opacity: 1;
+}
+.flowers-info {
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.5;
+  width: 240px;
+  position: absolute;
+  bottom: 50px;
+  padding: 5px 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, .6);
+}
+
+@media screen and (max-height: 800px) {
+  .flowers-field {
+    height: 45vw;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .flowers-field {
+    width: 400px;
+    height: 360px;
+  } 
+}
+@media screen and (min-width: 1024px) {
+  .flowers-field {
+    width: 600px;
+    height: 540px;
+  } 
+}

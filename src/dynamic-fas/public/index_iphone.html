@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alive Flowers are watching you</title>
+  <link rel="stylesheet" href="./static/styles.css">
+</head>
+<body>
+  <main>
+    <a href="https://tsum.ua/" class="logo">
+      <img src="./static/logo.svg" alt="ЦУМ">
+    </a>
+    <div class="info">
+      <p>За мить ти відчуєш себе художником.</p>
+      <h3>РОЗФАРБУЙ МЕНЕ!</h3>
+      <div class="lotus">
+        <img class="lotus-1" src="./static/lotus-pink.svg" alt="РОЗФАРБУЙ МЕНЕ!">
+        <img class="lotus-2" src="./static/lotus-green.svg" alt="РОЗФАРБУЙ МЕНЕ!">
+        <img class="lotus-3" src="./static/lotus-orange.svg" alt="РОЗФАРБУЙ МЕНЕ!">
+        <img class="lotus-4" src="./static/lotus-violet.svg" alt="РОЗФАРБУЙ МЕНЕ!">
+        <img class="lotus-5" src="./static/lotus-aqua.svg" alt="РОЗФАРБУЙ МЕНЕ!">
+        <img class="lotus-6" src="./static/lotus-yellow.svg" alt="РОЗФАРБУЙ МЕНЕ!">
+      </div>
+      <form method="get" action="__FAS_CALLBACK_URL__">
+        <input type="hidden" name="tok" value="__FAS_TOK__">
+        <input type="hidden" name="redir" value="__FAS_REDIRECT_URL__">
+        <input type="submit" id="button">
+        <label for="button" class="button">
+          Розпочати
+        </label>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,4 @@
+syntax: glob
+src/react-ui/build/*
+src/react-ui/node_modules/*
+*/.git/*

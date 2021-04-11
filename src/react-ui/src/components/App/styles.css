@@ -1,0 +1,15 @@
+.logo {
+  width: 110px;
+  display: block;
+  margin: 0 auto 20px;
+}
+.logo img {
+  width: 100%;
+}
+.game {
+  background: black;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  padding: 20px 10px 0;
+}

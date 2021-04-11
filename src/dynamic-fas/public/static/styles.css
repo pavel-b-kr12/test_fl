@@ -1,0 +1,136 @@
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src: url('./fonts/proxima-nova-light/proxima_nova_light.svg');
+  src: url('./fonts/proxima-nova-light/proxima_nova_light.eot'); /* IE 9 Compatibility Mode */
+  src: url('./fonts/proxima-nova-light/proxima_nova_light.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+    url('./fonts/proxima-nova-light/proxima_nova_light.woff2') format('woff2'), /* Super Modern Browsers */
+    url('./fonts/proxima-nova-light/proxima_nova_light.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+    url('./fonts/proxima-nova-light/proxima_nova_light.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('./fonts/proxima-nova-light/proxima_nova_light.svg#proxima_nova_light') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+@font-face {
+  font-family: 'Proxima Nova Semibold';
+  src: url('./fonts/proxima-nova-semibold/proxima_nova_semibold.eot'); /* IE 9 Compatibility Mode */
+  src: url('./fonts/proxima-nova-semibold/proxima_nova_semibold.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+    url('./fonts/proxima-nova-semibold/proxima_nova_semibold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('./fonts/proxima-nova-semibold/proxima_nova_semibold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+    url('./fonts/proxima-nova-semibold/proxima_nova_semibold.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('./fonts/proxima-nova-semibold/proxima_nova_semibold.svg#proxima_nova_semibold') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #000;
+}
+main {
+  width: 100vw;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-family: 'Proxima Nova Light';
+  padding: 40px 10px 10px;
+  font-size: 24px;
+  position: relative;
+}
+.logo {
+  width: 100px;
+  display: block;
+  margin: 0 auto 30px;
+}
+.logo img {
+  width: 100%;
+}
+.lotus {
+  margin: 20px 0 60px;
+  width: 160px;
+  height: 110px;
+  position: relative;
+}
+.lotus img {
+  width: 100%;
+  position: absolute;
+  animation-name: fade;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 6s;
+}
+.lotus-6 {
+  animation-delay: 0s;
+}
+.lotus-5 {
+  animation-delay: 1s;
+}
+.lotus-4 {
+  animation-delay: 2s;
+}
+.lotus-3 {
+  animation-delay: 3s;
+}
+.lotus-2 {
+  animation-delay: 4s;
+}
+.lotus-1 {
+  animation-delay: 5s;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.info p {
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 220px;
+}
+.qr-code {
+  margin: 20px 0 20px;
+  width: 170px;
+}
+#button {
+  display: none;
+}
+.button {
+  display: block;
+  width: 260px;
+  text-align: center;
+  padding: 12px 0;
+  border: 1px solid rgb(244,98,233);
+  font-size: 16px;
+}
+p.android-info {
+  max-width: 270px;
+}
+
+@media screen and (max-width: 374px) {
+  main {
+    font-size: 20px;
+    padding: 50px 10px 0;
+  }
+  .logo {
+    width: 100px;
+    margin: 0 auto 20px;
+  }
+  .lotus {
+    width: 130px;
+  }
+  .button {
+    width: 220px;
+  }
+  .qr-code {
+    margin: 10px 0 10px;
+    width: 100px;
+  }
+}
+
+@keyframes fade {
+  0% { opacity: 0; z-index: 100; }
+  10% { opacity: 1; }
+  90% { opacity: 1 }
+  100% { opacity: 0; z-index: 0; }
+}

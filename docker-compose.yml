@@ -1,0 +1,69 @@
+version: '2.0'
+
+services:
+
+  access-point:
+    build:
+      context: src/access-point
+    labels:
+      io.balena.features.dbus: "1"
+    restart: always
+    # privileged: true
+    network_mode: host
+    environment:
+      AP_SSID: TSUM_FlowersHub
+      AP_PASSWORD: ""
+    cap_add:
+    - SYS_ADMIN
+    - NET_ADMIN
+
+  #captive-portal:
+    #build:
+      #context: src/captive-portal
+    #restart: always
+    #privileged: true
+    #network_mode: host
+    #cap_add:s
+    #- SYS_ADMIN
+    #- NET_ADMIN
+    #volumes:
+      #- "ndsctl:/tmp/opennds/"
+
+  #dynamic-fas:
+    #build:s
+      #context: src/dynamic-fas
+    #restart: always
+    #environment:
+      #OPENNDS_FASKEY: 'asydt6qwetggasd5' 
+      #MQTT_BROKER_URL: mqtt://mosquitto
+      #MQTT_USER: dynamic_fas
+      #MQTT_PASSWORD: 1q2w3e4r
+    #ports:
+      #- "3000:3000"
+    #volumes:
+      #- "ndsctl:/tmp/opennds/"
+
+  react-ui:
+    build:
+      context: src/react-ui
+      args:
+        REACT_APP_MQTT_BROKER_URL: ws://10.42.0.1:9001
+        REACT_APP_FAS_URL: http://10.42.10.1:3000
+    restart: always
+    ports:
+      - "3001:80"
+
+  mosquitto:
+    build:
+      context: src/mqtt-server
+    expose:
+      - "1883"
+    ports:
+      - "8883:1883"
+      - "9001:9001"
+    volumes:
+      - "mosquitto:/mosquitto/data"
+
+volumes:
+  mosquitto: {}
+  ndsctl: {}
