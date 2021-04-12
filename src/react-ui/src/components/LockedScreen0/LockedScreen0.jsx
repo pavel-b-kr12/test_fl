@@ -10,11 +10,11 @@ import lotusYellow from '../../assets/lotus-yellow.svg'
 // import timerBg from '../../assets/timer-bg.svg';
 // import CountDownTimer from '../CountDownTimer';
 
-const LockedScreen = (/*{ appTime }*/) => (
+const LockedScreen0 = (/*{ appTime }*/) => (
   <section className='locked-screen'>
-    <p className='locked-info'>Дякую за твій дотик!</p>
-    <p>Ти справжній митець.</p>
-    <p>Спробуй ще через пару хвилини.</p>
+    <p className='locked-info'>Зачекайте,</p>
+    <p>зараз управлiння</p>
+    <p>кимось зайняте</p>
     <div className='locked-img'>
       <img className='lotus-1' src={lotusAqua} alt="lotusAqua" />
       <img className='lotus-2' src={lotusGreen} alt="lotusGreen" />
@@ -30,4 +30,4 @@ const LockedScreen = (/*{ appTime }*/) => (
   </section>
 );
 
-export default LockedScreen;
+export default LockedScreen0;

@@ -9,7 +9,7 @@ import { rgbStringify } from '../../utils';
 //import { setTimer } from '../../api';
 import Controls from '../Controls';
 import LockedScreen from '../LockedScreen';
-import LockedScreen0 from '../LockedScreen';
+import LockedScreen0 from '../LockedScreen0';
 
 
 const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
