@@ -9,14 +9,15 @@ import { rgbStringify } from '../../utils';
 //import { setTimer } from '../../api';
 import Controls from '../Controls';
 import LockedScreen from '../LockedScreen';
+import LockedScreen0 from '../LockedScreen';
+
 
 const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
-	
   const [gameTime, setGameTime] = useState(null);
 
-  const game = localStorage.getItem('gameActive');
-  const gameState = game ? JSON.parse(game) : true;
-  const [gameActive, setGameActive] = useState(gameState);
+  //const game = localStorage.getItem('gameActive');
+  //const gameState = game ? JSON.parse(game) : true;
+  //const [gameActive, setGameActive] = useState(gameState);
   
   useEffect(() => {
     if (data && data.length) {
@@ -24,14 +25,15 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
       setActiveColor(color);
     }
     return null;
-  }, [data]);
+  }, [data,setActiveColor]);
 
-  useEffect(() => setGameTimer(), [gameActive]);
+  //useEffect(() => setGameTimer(), [gameActive]);
+  useEffect(() => setGameTimer());
 
   useEffect(() => {
-    if (gameTime === 0) {
-      localStorage.setItem('gameActive', !gameActive);
-    };
+    // if (gameTime === 0) {
+      // localStorage.setItem('gameActive', !gameActive);
+    // };
 //const timer = gameTime > 0 && setInterval(() => setGameTime(gameTime - 1), 1000);
 //console.log(gameTime);
     const timer =  setInterval(() => {
@@ -90,10 +92,15 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
     }*/
   };
 
+				//test
+		  	  	//return <App />
+				//return <LockedScreen0 />
 	//TODO move to root
 	var user_id = localStorage.getItem('user_id');
+	//var bFirtsRun=false;
 	if(!user_id)
 	{
+		//bFirtsRun=true;
 		user_id=Math.floor(Math.random()*100000);
 		localStorage.setItem('user_id',user_id);
 	}
@@ -129,7 +136,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		{
 			if (user_active===user_id)
 			{ //this user is active
-				
+				if(!localStorage.getItem('bWasActive'))	localStorage.setItem('bWasActive', 1); //show LockedScreen or LockedScreen0
 				let gm_active_till_t = localStorage.getItem('gm_active_till_t');
 				if(!gm_active_till_t) //at start of active
 				{
@@ -153,6 +160,9 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 			gm_active_till_t=parseInt(gm_active_till_t);
 			if(new Date().getTime()>gm_active_till_t && new Date().getTime()<gm_active_till_t+GAME_TIME_PLAY)
 			{
+				if(localStorage.getItem('bWasActive'))
+				return <LockedScreen0 />
+				else
 				return <LockedScreen />
 			}
 		}

@@ -6,10 +6,11 @@
  *
  * See https://github.com/corbanmailloux/esp-mqtt-rgb-led for more information.
  */
+#define disableW
 
 // Set configuration options for LED type, pins, WiFi, and MQTT in the following file:
 #include "config.h"
-long idle_mode_start_t=0; // 0 is off idle mode for now, -1 off forever
+long idle_mode_start_t=2000; // 0 is off idle mode for now, -1 off forever
 
 // https://github.com/bblanchon/ArduinoJson
 #include <ArduinoJson.h>
@@ -180,7 +181,9 @@ void setup_wifi() {
       "flash": 2,
       "transition": 5,
       "state": "ON",
-      "effect": "colorfade_fast"
+      "effect": "colorfade_fast",
+      "endSes_d": 60,
+      "idle_d": 30
     }
   */
 void callback(char* topic, byte* payload, unsigned int length) {
@@ -207,8 +210,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
     realGreen = map(green, 0, 255, 0, brightness);
     realBlue = map(blue, 0, 255, 0, brightness);
     realWhite = map(white, 0, 255, 0, brightness);
-	if(idle_mode_start_t>=0)
-		idle_mode_start_t=millis()+idle_d;
   }
   else {
     realRed = 0;
@@ -216,6 +217,8 @@ void callback(char* topic, byte* payload, unsigned int length) {
     realBlue = 0;
     realWhite = 0;
   }
+  	if(idle_mode_start_t>=0)
+		idle_mode_start_t=millis()+idle_d;
 
   startFade = true;
   inFade = false; // Kill the current fade
@@ -375,6 +378,7 @@ bool processJson(char* message) {
     if (includeWhite && root.containsKey("white_value")) {
       white = root["white_value"];
     }
+	else white=0;
 
     if (root.containsKey("brightness")) {
       brightness = root["brightness"];
@@ -472,9 +476,14 @@ void setColor(int inR, int inG, int inB, int inW) {
     analogWrite(CONFIG_PIN_BLUE, inB);
   }
 
+		#ifdef disableW
+
+		#else
   if (includeWhite) {
     analogWrite(CONFIG_PIN_WHITE, inW);
   }
+		#endif
+
 
   #ifdef CONFIG_DEBUG
     Serial.print("Setting LEDs: {");
@@ -537,7 +546,12 @@ void loop() {
 	idle_mode_start_t=0;
 	  
 	if(includeWhite)
+	{
 	 setColor(idle_mode_RGB_color,idle_mode_RGB_color,idle_mode_RGB_color,idle_mode_W_color);
+	 #ifdef disableW
+	 analogWrite(CONFIG_PIN_WHITE, idle_mode_W_color);
+	 #endif
+	}
 	else
 	 setColor(idle_mode_RGB_color_no_w,idle_mode_RGB_color_no_w,idle_mode_RGB_color_no_w,0);
   }
@@ -686,7 +700,11 @@ void loop() {
 
     if ((millis() - flashStartTime) <= flashLength) {
       if ((millis() - flashStartTime) % 1000 <= 500) {
-        setColor(flashRed, flashGreen, flashBlue, flashWhite);
+		#ifdef disableW
+			setColor(flashRed, flashGreen, flashBlue, 0);
+		#else
+			setColor(flashRed, flashGreen, flashBlue, flashWhite);
+		#endif
       }
       else {
         setColor(0, 0, 0, 0);
@@ -697,7 +715,12 @@ void loop() {
     }
     else {
       flash = false;
-      setColor(realRed, realGreen, realBlue, realWhite);
+	  	#ifdef disableW
+			setColor(realRed, realGreen, realBlue, 0);
+		#else
+			setColor(realRed, realGreen, realBlue, realWhite);
+		#endif
+    
     }
   }
   else if (rgb && colorfade && !inFade) {
@@ -712,7 +735,12 @@ void loop() {
   if (startFade) {
     // If we don't want to fade, skip it.
     if (transitionTime == 0) {
-      setColor(realRed, realGreen, realBlue, realWhite);
+		#ifdef disableW
+			setColor(realRed, realGreen, realBlue, 0);
+		#else
+			setColor(realRed, realGreen, realBlue, realWhite);
+		#endif
+      
 
       redVal = realRed;
       grnVal = realGreen;
@@ -742,9 +770,13 @@ void loop() {
         redVal = calculateVal(stepR, redVal, loopCount);
         grnVal = calculateVal(stepG, grnVal, loopCount);
         bluVal = calculateVal(stepB, bluVal, loopCount);
-        whtVal = calculateVal(stepW, whtVal, loopCount);
-
-        setColor(redVal, grnVal, bluVal, whtVal); // Write current values to LED pins
+       
+		#ifdef disableW
+			setColor(redVal, grnVal, bluVal, 0); // Write current values to LED pins
+		#else
+			whtVal = calculateVal(stepW, whtVal, loopCount);
+			setColor(redVal, grnVal, bluVal, whtVal); // Write current values to LED pins
+		#endif
 
 #ifdef CONFIG_DEBUG
         Serial.print("Loop count: ");
