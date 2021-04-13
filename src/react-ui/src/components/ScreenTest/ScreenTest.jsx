@@ -31,7 +31,7 @@ const getCountdown = () => {
 	let now_t = new Date().getTime();
 	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
 	//console.log(!gm_active_till_t, now_t)
-	return 'user'+user_id+': '+(gm_active_till_t?Math.abs(Math.round((gm_active_till_t - now_t) / 1000)):'?');
+	return 'user'+user_id+': '+(gm_active_till_t?(Math.round((gm_active_till_t - now_t) / 1000)):'?');
 }
 const [countdown_t, setCountdown] = useState(getCountdown());
 useEffect(() => {
@@ -56,6 +56,9 @@ useEffect(() => {
 	<button onClick={() => onSetC(0,0,255)}>B</button>
 	<button onClick={() => onSetC(0,0,0)}>0</button>
 	<button onClick={() => onSetC(255,255,255)}>255,255,255</button>
+	<button class='btnB' onClick={() => {localStorage.setItem('gm_active_till_t',Math.floor(new Date().getTime()+20*1000));}}>set timer 20</button>
+	<button class='btnB' onClick={() => {localStorage.removeItem('gm_active_till_t');}}>clear timer</button>
+	<button class='btnB' onClick={() => {localStorage.removeItem('gm_active_till_t');localStorage.removeItem('user_id');user_id=null;}}>remove user</button>
 
     <div className='timer-wrapper'>
       <img src={timerBg} alt='timer' className='timer-bg' />
