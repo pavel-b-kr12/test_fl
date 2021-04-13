@@ -24,3 +24,10 @@ export const FAKE_COLORS = {
 }
 
 export const COLOR_DEFAULT = 'rgb(255, 255, 255)';
+
+export var user_id = parseInt(localStorage.getItem('user_id'));
+if(!user_id)
+{
+	user_id=Math.floor(Math.random()*100000);
+	localStorage.setItem('user_id',user_id);
+}

@@ -3,7 +3,8 @@ import { subscribe } from 'mqtt-react';
 
 import {
   MQTT_TOPIC_SUBSCRIBE,
-  GAME_TIME_PLAY
+  GAME_TIME_PLAY,
+  user_id
 } from '../../const';
 import { rgbStringify } from '../../utils';
 //import { setTimer } from '../../api';
@@ -89,16 +90,6 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 //return <CountDownTimer />
 //return <LockedScreen0 />
 
-	//TODO move to root
-	var user_id = localStorage.getItem('user_id');
-	//var bFirtsRun=false;
-	if(!user_id)
-	{
-		//bFirtsRun=true;
-		user_id=Math.floor(Math.random()*100000);
-		localStorage.setItem('user_id',user_id);
-	}
-	else user_id=parseInt(user_id);
 	
 	let now_t=new Date().getTime();
 	
@@ -152,6 +143,10 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 	}
 	else
 	{//no data from ESP
+		if(window.location.search.includes('testesp'))
+		{	//'?testesp'
+			return <ScreenTest mqtt={mqtt} />
+		}
 		if(gm_active_till_t)
 		{
 			if(now_t>gm_active_till_t && now_t<gm_active_till_t+GAME_TIME_PLAY)
