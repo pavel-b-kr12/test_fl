@@ -8,8 +8,7 @@ import {
 import { rgbStringify } from '../../utils';
 //import { setTimer } from '../../api';
 import Controls from '../Controls';
-import LockedScreen from '../LockedScreen';
-import LockedScreen0 from '../LockedScreen0';
+import {LockedScreen, LockedScreen0} from '../LockedScreen';
 
 
 const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
@@ -93,7 +92,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
   };
 
 				//test
-		  	  	//return <App />
+		  	  	//return <CountDownTimer />
 				//return <LockedScreen0 />
 	//TODO move to root
 	var user_id = localStorage.getItem('user_id');
@@ -105,18 +104,18 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		localStorage.setItem('user_id',user_id);
 	}
 	else user_id=parseInt(user_id);
-
+	let now_t=new Date().getTime();
 	if(data[0])
 	{
 		{
 		let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
-		if(gm_active_till_t-new Date().getTime() <-GAME_TIME_PLAY)
+		if(gm_active_till_t-now_t <-GAME_TIME_PLAY)
 		{ //TODO refactoring
 			localStorage.removeItem('gm_active_till_t');
 			gm_active_till_t=null;
 		}
 		
-		//console.log(data[0], data[0].user_active, user_id, gm_active_till_t-new Date().getTime());//, data[0].user_active, user_id, parseInt(data[0].user_active)==user_id
+		//console.log(data[0], data[0].user_active, user_id, gm_active_till_t-now_t);//, data[0].user_active, user_id, parseInt(data[0].user_active)==user_id
 		
 		}
 		var user_active=parseInt(data[0].user_active);
@@ -124,7 +123,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		if (user_active===0)
 		{
 			let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
-			if(gm_active_till_t&&new Date().getTime()<gm_active_till_t+GAME_TIME_PLAY) 
+			if(gm_active_till_t&&now_t<gm_active_till_t+GAME_TIME_PLAY) 
 			{//some time to other people can react on game open
 		//TODO can be smaller than GAME_TIME_PLAY, if no other active users appear
 		//TODO2 do not off game if nobody else connected
@@ -136,11 +135,13 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		{
 			if (user_active===user_id)
 			{ //this user is active
-				if(!localStorage.getItem('bWasActive'))	localStorage.setItem('bWasActive', 1); //show LockedScreen or LockedScreen0
+				let active_last_t=localStorage.getItem('active_last_t');
+				
+				if(!active_last_t || parseInt(active_last_t)<now_t-60*1000)	localStorage.setItem('active_last_t', now_t); //show LockedScreen or LockedScreen0
 				let gm_active_till_t = localStorage.getItem('gm_active_till_t');
 				if(!gm_active_till_t) //at start of active
 				{
-					localStorage.setItem('gm_active_till_t',Math.floor(new Date().getTime()+GAME_TIME_PLAY*1000));
+					localStorage.setItem('gm_active_till_t',Math.floor(now_t+GAME_TIME_PLAY*1000));
 				}
 	
 			}
@@ -158,12 +159,15 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		if(gm_active_till_t)
 		{
 			gm_active_till_t=parseInt(gm_active_till_t);
-			if(new Date().getTime()>gm_active_till_t && new Date().getTime()<gm_active_till_t+GAME_TIME_PLAY)
+			if(now_t>gm_active_till_t && now_t<gm_active_till_t+GAME_TIME_PLAY)
 			{
-				if(localStorage.getItem('bWasActive'))
-				return <LockedScreen0 />
+				let active_last_t=localStorage.getItem('active_last_t');
+				
+				if(!active_last_t || parseInt(active_last_t)<now_t-60*60*1000)
+					return <LockedScreen0 />
 				else
-				return <LockedScreen />
+					//last visit recently
+					return <LockedScreen />
 			}
 		}
 		

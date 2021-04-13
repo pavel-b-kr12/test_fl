@@ -1,1 +1,1 @@
-export { default } from './LockedScreen';
+export { LockedScreen, LockedScreen0 } from './LockedScreen';
