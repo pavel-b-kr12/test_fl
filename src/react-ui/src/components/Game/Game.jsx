@@ -9,6 +9,7 @@ import { rgbStringify } from '../../utils';
 //import { setTimer } from '../../api';
 import Controls from '../Controls';
 import {LockedScreen, LockedScreen0} from '../LockedScreen';
+import {ScreenTest} from '../ScreenTest';
 
 
 const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
@@ -38,9 +39,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
     const timer =  setInterval(() => {
 		let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
 		let countdown=(gm_active_till_t&&(gm_active_till_t-new Date().getTime())>0)?	Math.floor((gm_active_till_t-new Date().getTime())/1000) :0;
-		//console.log(countdown);
-		
-		setGameTime(countdown)
+		setGameTime(countdown);
 		}, 1000);
     return () => clearInterval(timer);
   }, [gameTime]);
@@ -49,14 +48,9 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
     //var activeGameTime = localStorage.getItem('activeTime');
     //const isGameActive = JSON.parse(localStorage.getItem('gameActive'));
 
-    const date = new Date();
-    const time = date?.getTime();
-    //const timeToPlay = time + (GAME_TIME_PLAY * 1000);
-	
-	//let gm_active_till_t = localStorage.getItem('gm_active_till_t');
-	//TODO unlock timer if time >gm_active_till_t  but < gm_active_till_t+GAME_TIME_PLAY
-	//
-	
+    let now_t = new Date().getTime();
+    //const timeToPlay = now_t + (GAME_TIME_PLAY * 1000);
+
 	/*
     if (!activeGameTime) {
       localStorage.setItem('gameActive', true);
@@ -70,18 +64,18 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 	//activeGameTime=parseInt(activeGameTime);
 	
 	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
-//console.log(time, timeToPlay, activeGameTime, isGameActive, gm_active_till_t);
+//console.log(now_t, timeToPlay, activeGameTime, isGameActive, gm_active_till_t);
 
-    if (gm_active_till_t && (time < gm_active_till_t)) {
-      setGameTime(Math.round((gm_active_till_t - time) / 1000));
+    if (gm_active_till_t && (now_t < gm_active_till_t)) {
+      setGameTime(Math.round((gm_active_till_t - now_t) / 1000));
       return;
     };
-    // if ((time < activeGameTime) && isGameActive) {
-      // setGameTime(Math.round((activeGameTime - time) / 1000));
+    // if ((now_t < activeGameTime) && isGameActive) {
+      // setGameTime(Math.round((activeGameTime - now_t) / 1000));
       // return;
     // };
 /*
-    if (time > activeGameTime) {
+    if (now_t > activeGameTime) {
       localStorage.setItem('gameActive', true);
       //setTimer();
       setGameActive(true);
@@ -91,9 +85,10 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
     }*/
   };
 
-				//test
-		  	  	//return <CountDownTimer />
-				//return <LockedScreen0 />
+//test
+//return <CountDownTimer />
+//return <LockedScreen0 />
+
 	//TODO move to root
 	var user_id = localStorage.getItem('user_id');
 	//var bFirtsRun=false;
@@ -104,30 +99,36 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		localStorage.setItem('user_id',user_id);
 	}
 	else user_id=parseInt(user_id);
+	
 	let now_t=new Date().getTime();
+	
+	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
+	let bRunRecently=false;
+	if(now_t > gm_active_till_t+60*20*1000)
+	{
+		localStorage.removeItem('gm_active_till_t');
+		gm_active_till_t=null;
+	}
+	else bRunRecently=true;
+		
+	const redir = () => {
+		window.location.href = "https://tsum.ua/";//test: if(localStorage.getItem('test_redir')) redir();
+	}
+	
 	if(data[0])
 	{
-		{
-		let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
-		if(gm_active_till_t-now_t <-GAME_TIME_PLAY)
-		{ //TODO refactoring
-			localStorage.removeItem('gm_active_till_t');
-			gm_active_till_t=null;
-		}
-		
 		//console.log(data[0], data[0].user_active, user_id, gm_active_till_t-now_t);//, data[0].user_active, user_id, parseInt(data[0].user_active)==user_id
-		
-		}
+
 		var user_active=parseInt(data[0].user_active);
 		
 		if (user_active===0)
 		{
-			let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
 			if(gm_active_till_t&&now_t<gm_active_till_t+GAME_TIME_PLAY) 
 			{//some time to other people can react on game open
 		//TODO can be smaller than GAME_TIME_PLAY, if no other active users appear
 		//TODO2 do not off game if nobody else connected
-				return <LockedScreen />
+				//return <LockedScreen />
+				redir();
 			}
 		}
 		else
@@ -135,43 +136,41 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		{
 			if (user_active===user_id)
 			{ //this user is active
-				let active_last_t=localStorage.getItem('active_last_t');
-				
-				if(!active_last_t || parseInt(active_last_t)<now_t-60*1000)	localStorage.setItem('active_last_t', now_t); //show LockedScreen or LockedScreen0
-				let gm_active_till_t = localStorage.getItem('gm_active_till_t');
 				if(!gm_active_till_t) //at start of active
 				{
-					localStorage.setItem('gm_active_till_t',Math.floor(now_t+GAME_TIME_PLAY*1000));
+					gm_active_till_t=Math.floor(now_t+GAME_TIME_PLAY*1000);
+					localStorage.setItem('gm_active_till_t',gm_active_till_t);
+					
 				}
-	
 			}
 			else
 			{
-				localStorage.removeItem('gm_active_till_t');
-				return <LockedScreen />
+				//return <LockedScreen />
+				redir();
 			}
-
 		}
 	}
 	else
-	{
-		let gm_active_till_t = localStorage.getItem('gm_active_till_t');
+	{//no data from ESP
 		if(gm_active_till_t)
 		{
-			gm_active_till_t=parseInt(gm_active_till_t);
 			if(now_t>gm_active_till_t && now_t<gm_active_till_t+GAME_TIME_PLAY)
 			{
-				let active_last_t=localStorage.getItem('active_last_t');
-				
-				if(!active_last_t || parseInt(active_last_t)<now_t-60*60*1000)
+				if(gm_active_till_t<now_t-60*60*1000)
+					//not recently
 					return <LockedScreen0 />
 				else
 					//last visit recently
-					return <LockedScreen />
+					//return <LockedScreen />
+					redir();
 			}
 		}
-		
-		//if (!gameTime) return <LockedScreen />
+		else return <LockedScreen0 />
+	}
+	
+	if(window.location.search.includes('testesp'))
+	{	//'?testesp'
+		return <ScreenTest mqtt={mqtt} />
 	}
 
   return (

@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.8d71ef09.chunk.css",
-    "main.js": "/static/js/main.8385276a.chunk.js",
-    "main.js.map": "/static/js/main.8385276a.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.d1b444d3.js",
-    "runtime-main.js.map": "/static/js/runtime-main.d1b444d3.js.map",
+    "main.css": "/static/css/main.750275a4.chunk.css",
+    "main.js": "/static/js/main.6cfadd3f.chunk.js",
+    "main.js.map": "/static/js/main.6cfadd3f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.110e1566.js",
+    "runtime-main.js.map": "/static/js/runtime-main.110e1566.js.map",
     "static/js/2.274a60da.chunk.js": "/static/js/2.274a60da.chunk.js",
     "static/js/2.274a60da.chunk.js.map": "/static/js/2.274a60da.chunk.js.map",
-    "static/js/3.26afb7a5.chunk.js": "/static/js/3.26afb7a5.chunk.js",
-    "static/js/3.26afb7a5.chunk.js.map": "/static/js/3.26afb7a5.chunk.js.map",
+    "static/js/3.fe3f4f53.chunk.js": "/static/js/3.fe3f4f53.chunk.js",
+    "static/js/3.fe3f4f53.chunk.js.map": "/static/js/3.fe3f4f53.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.8d71ef09.chunk.css.map": "/static/css/main.8d71ef09.chunk.css.map",
+    "static/css/main.750275a4.chunk.css.map": "/static/css/main.750275a4.chunk.css.map",
     "static/js/2.274a60da.chunk.js.LICENSE.txt": "/static/js/2.274a60da.chunk.js.LICENSE.txt",
     "static/media/logo.ea23c954.svg": "/static/media/logo.ea23c954.svg",
     "static/media/lotus-aqua.e0d01c2a.svg": "/static/media/lotus-aqua.e0d01c2a.svg",
@@ -26,12 +26,13 @@
     "static/media/main-bg-violet.0e479edf.jpg": "/static/media/main-bg-violet.0e479edf.jpg",
     "static/media/main-bg-yellow.94fa6b70.jpg": "/static/media/main-bg-yellow.94fa6b70.jpg",
     "static/media/main-bg.f8215fc8.jpg": "/static/media/main-bg.f8215fc8.jpg",
-    "static/media/index.css": "/static/media/proxima_nova_semibold.c93f5b31.woff"
+    "static/media/index.css": "/static/media/proxima_nova_semibold.c93f5b31.woff",
+    "static/media/timer-bg.eda28634.svg": "/static/media/timer-bg.eda28634.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d1b444d3.js",
+    "static/js/runtime-main.110e1566.js",
     "static/js/2.274a60da.chunk.js",
-    "static/css/main.8d71ef09.chunk.css",
-    "static/js/main.8385276a.chunk.js"
+    "static/css/main.750275a4.chunk.css",
+    "static/js/main.6cfadd3f.chunk.js"
   ]
 }
