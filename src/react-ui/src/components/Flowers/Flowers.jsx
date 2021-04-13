@@ -1,13 +1,13 @@
 import React from 'react';
 
 import './styles.css';
-import backgroundImage from '../../assets/main-bg.jpg';
-import backgroundImageBlue from '../../assets/main-bg-blue.jpg';
-import backgroundImageGreen from '../../assets/main-bg-green.jpg';
-import backgroundImageOrange from '../../assets/main-bg-orange.jpg';
-import backgroundImagePink from '../../assets/main-bg-pink.jpg';
-import backgroundImageViolet from '../../assets/main-bg-violet.jpg';
-import backgroundImageYellow from '../../assets/main-bg-yellow.jpg';
+import backgroundImage from '../../assets/main-bg.png';
+import backgroundImageBlue from '../../assets/main-bg-blue.png';
+import backgroundImageGreen from '../../assets/main-bg-green.png';
+import backgroundImageOrange from '../../assets/main-bg-orange.png';
+import backgroundImagePink from '../../assets/main-bg-pink.png';
+import backgroundImageViolet from '../../assets/main-bg-violet.png';
+import backgroundImageYellow from '../../assets/main-bg-yellow.png';
 import { COLOR_DEFAULT } from '../../const';
 
 const flowers = {
