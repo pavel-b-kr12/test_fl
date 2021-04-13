@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.8d71ef09.chunk.css",
-    "main.js": "/static/js/main.1c2db829.chunk.js",
-    "main.js.map": "/static/js/main.1c2db829.chunk.js.map",
+    "main.js": "/static/js/main.8385276a.chunk.js",
+    "main.js.map": "/static/js/main.8385276a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d1b444d3.js",
     "runtime-main.js.map": "/static/js/runtime-main.d1b444d3.js.map",
-    "static/js/2.2d6cfbac.chunk.js": "/static/js/2.2d6cfbac.chunk.js",
-    "static/js/2.2d6cfbac.chunk.js.map": "/static/js/2.2d6cfbac.chunk.js.map",
+    "static/js/2.274a60da.chunk.js": "/static/js/2.274a60da.chunk.js",
+    "static/js/2.274a60da.chunk.js.map": "/static/js/2.274a60da.chunk.js.map",
     "static/js/3.26afb7a5.chunk.js": "/static/js/3.26afb7a5.chunk.js",
     "static/js/3.26afb7a5.chunk.js.map": "/static/js/3.26afb7a5.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.8d71ef09.chunk.css.map": "/static/css/main.8d71ef09.chunk.css.map",
-    "static/js/2.2d6cfbac.chunk.js.LICENSE.txt": "/static/js/2.2d6cfbac.chunk.js.LICENSE.txt",
+    "static/js/2.274a60da.chunk.js.LICENSE.txt": "/static/js/2.274a60da.chunk.js.LICENSE.txt",
     "static/media/logo.ea23c954.svg": "/static/media/logo.ea23c954.svg",
     "static/media/lotus-aqua.e0d01c2a.svg": "/static/media/lotus-aqua.e0d01c2a.svg",
     "static/media/lotus-green.92564941.svg": "/static/media/lotus-green.92564941.svg",
@@ -19,19 +19,19 @@
     "static/media/lotus-pink.87b2eeeb.svg": "/static/media/lotus-pink.87b2eeeb.svg",
     "static/media/lotus-violet.8a14d3ad.svg": "/static/media/lotus-violet.8a14d3ad.svg",
     "static/media/lotus-yellow.dc894035.svg": "/static/media/lotus-yellow.dc894035.svg",
-    "static/media/main-bg-blue.b3ef2b3d.jpg": "/static/media/main-bg-blue.b3ef2b3d.jpg",
-    "static/media/main-bg-green.f11eab07.jpg": "/static/media/main-bg-green.f11eab07.jpg",
-    "static/media/main-bg-orange.23e65c89.jpg": "/static/media/main-bg-orange.23e65c89.jpg",
-    "static/media/main-bg-pink.8f3a7f19.jpg": "/static/media/main-bg-pink.8f3a7f19.jpg",
-    "static/media/main-bg-violet.43cfa96b.jpg": "/static/media/main-bg-violet.43cfa96b.jpg",
-    "static/media/main-bg-yellow.b7b639e8.jpg": "/static/media/main-bg-yellow.b7b639e8.jpg",
-    "static/media/main-bg.9adcafc5.jpg": "/static/media/main-bg.9adcafc5.jpg",
+    "static/media/main-bg-blue.f8e708b8.jpg": "/static/media/main-bg-blue.f8e708b8.jpg",
+    "static/media/main-bg-green.d9f1c009.jpg": "/static/media/main-bg-green.d9f1c009.jpg",
+    "static/media/main-bg-orange.087156be.jpg": "/static/media/main-bg-orange.087156be.jpg",
+    "static/media/main-bg-pink.7e61175a.jpg": "/static/media/main-bg-pink.7e61175a.jpg",
+    "static/media/main-bg-violet.0e479edf.jpg": "/static/media/main-bg-violet.0e479edf.jpg",
+    "static/media/main-bg-yellow.94fa6b70.jpg": "/static/media/main-bg-yellow.94fa6b70.jpg",
+    "static/media/main-bg.f8215fc8.jpg": "/static/media/main-bg.f8215fc8.jpg",
     "static/media/index.css": "/static/media/proxima_nova_semibold.c93f5b31.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.d1b444d3.js",
-    "static/js/2.2d6cfbac.chunk.js",
+    "static/js/2.274a60da.chunk.js",
     "static/css/main.8d71ef09.chunk.css",
-    "static/js/main.1c2db829.chunk.js"
+    "static/js/main.8385276a.chunk.js"
   ]
 }
