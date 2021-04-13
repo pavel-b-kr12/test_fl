@@ -95,12 +95,16 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 	
 	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
 	let bRunRecently=false;
-	if(now_t > gm_active_till_t+60*20*1000)
+	if(gm_active_till_t)
 	{
-		localStorage.removeItem('gm_active_till_t');
-		gm_active_till_t=null;
+		if(now_t < gm_active_till_t+60*20*1000)
+			bRunRecently=true;
+		else
+		{
+			localStorage.removeItem('gm_active_till_t');
+			gm_active_till_t=null;
+		}
 	}
-	else bRunRecently=true;
 		
 	const redir = () => {
 		window.location.href = "https://tsum.ua/";//test: if(localStorage.getItem('test_redir')) redir();
@@ -114,13 +118,14 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		
 		if (user_active===0)
 		{
-			if(gm_active_till_t&&now_t<gm_active_till_t+GAME_TIME_PLAY) 
+			if(bRunRecently) 
 			{//some time to other people can react on game open
 		//TODO can be smaller than GAME_TIME_PLAY, if no other active users appear
 		//TODO2 do not off game if nobody else connected
-				//return <LockedScreen />
+				//return <LockedScreenEnd />
 				redir();
 			}
+			//else show interface to all users
 		}
 		else
 		if (user_active)
@@ -131,13 +136,14 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 				{
 					gm_active_till_t=Math.floor(now_t+GAME_TIME_PLAY*1000);
 					localStorage.setItem('gm_active_till_t',gm_active_till_t);
-					
 				}
 			}
 			else
 			{
-				//return <LockedScreen />
-				redir();
+				if(bRunRecently)
+					redir();
+				else
+					return <LockedScreen0 />
 			}
 		}
 	}
@@ -151,13 +157,10 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		{
 			if(now_t>gm_active_till_t && now_t<gm_active_till_t+GAME_TIME_PLAY)
 			{
-				if(gm_active_till_t<now_t-60*60*1000)
-					//not recently
-					return <LockedScreen0 />
-				else
-					//last visit recently
-					//return <LockedScreen />
+				if(bRunRecently)
 					redir();
+				else
+					return <LockedScreen0 />
 			}
 		}
 		else return <LockedScreen0 />

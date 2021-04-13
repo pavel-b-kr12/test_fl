@@ -9,10 +9,6 @@ import timerBg from '../../assets/timer-bg.svg';
 import CountDownTimer from '../CountDownTimer';
 
 export const ScreenTest = ({ mqtt }) => {
-	
-//TODO move to root
-
-
   const onSelectEff = effNm => {
 	  let req= generateMessageTest('{ "r": 99, "g": 0, "b": 0 }', user_id, GAME_TIME_PLAY, idle_d, effNm);
 	  console.log(effNm,req);
@@ -34,8 +30,7 @@ export const ScreenTest = ({ mqtt }) => {
 const getCountdown = () => {
 	let now_t = new Date().getTime();
 	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
-	console.log(!gm_active_till_t, now_t)
-
+	//console.log(!gm_active_till_t, now_t)
 	return 'user'+user_id+': '+(gm_active_till_t?Math.abs(Math.round((gm_active_till_t - now_t) / 1000)):'?');
 }
 const [countdown_t, setCountdown] = useState(getCountdown());
