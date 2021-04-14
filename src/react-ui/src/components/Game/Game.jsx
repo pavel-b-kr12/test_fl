@@ -112,7 +112,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 	
 	if(data[0])
 	{
-		//console.log(data[0], data[0].user_active, user_id, gm_active_till_t-now_t);//, data[0].user_active, user_id, parseInt(data[0].user_active)==user_id
+		//console.log(data[0], data[0].user_active, user_id, parseInt(data[0].user_active)==user_id, gm_active_till_t-now_t); 
 
 		var user_active=parseInt(data[0].user_active);
 		
@@ -151,8 +151,9 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 	{//no data from ESP
 		if(window.location.search.includes('testesp'))
 		{	//'?testesp'
-			return <ScreenTest mqtt={mqtt} />
+			return <ScreenTest mqtt={mqtt} data={data} />
 		}
+		/* //TODO think if this need and how
 		if(gm_active_till_t)
 		{
 			if(now_t>gm_active_till_t && now_t<gm_active_till_t+GAME_TIME_PLAY)
@@ -164,11 +165,12 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 			}
 		}
 		else return <LockedScreen0 />
+		*/
 	}
 	
 	if(window.location.search.includes('testesp'))
 	{	//'?testesp'
-		return <ScreenTest mqtt={mqtt} />
+		return <ScreenTest mqtt={mqtt} data={data} />
 	}
 
   return (

@@ -1,3 +1,10 @@
+
+# usage
+
+test page url:
+
+ /?testesp
+
 # Captive Portal
 
 ![mqtt](docs/captive-portal.png "MQTT Diagram")

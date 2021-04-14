@@ -1,5 +1,5 @@
 // Enables Serial and print statements
-//#define CONFIG_DEBUG
+#define CONFIG_DEBUG
 
 #define use_pinD3
 
