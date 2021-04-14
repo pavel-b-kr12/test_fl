@@ -1,3 +1,18 @@
+button
+{
+	width: 50vw;
+	height: 4vh;
+	background-color: #456;
+	color: #efc;
+}
+.btnB
+{
+	width: 50vw;
+	height: 4vh;
+	background-color: #159;
+	color: #efc;
+}
+
 .locked-screen {
   display: flex;
   flex-direction: column;
