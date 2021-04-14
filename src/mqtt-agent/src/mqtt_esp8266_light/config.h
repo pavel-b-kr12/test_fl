@@ -4,7 +4,8 @@
 #define use_pinD3
 
 long endSes_d=60000;
-long idle_d=30000;
+long idle_d=40000;
+#define endSes_dm	60000 //limit
 #define endSes_dM	180000 //limit
 #define idle_dM		180000 //limit
 

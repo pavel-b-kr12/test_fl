@@ -26,21 +26,32 @@ export const ScreenTest = ({ mqtt, data }) => {
       req
     );
   };
-var data0=null;
-var data0user_active=null;
+
+var data0='';
+var data0user_active='';
+// const [data0, setdata0] = useState(null);
+// const [data0user_active, setdata0user_active] = useState(null);
+		// <p>data[0]: {data0}</p>
+		// <p>data[0].user_active: {data0user_active}</p>
 const getCountdown = () => {
 	let now_t = new Date().getTime();
 	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
 	//console.log(!gm_active_till_t, now_t)
 	let s=gm_active_till_t?(Math.round((gm_active_till_t - now_t) / 1000)):'?';
 	data0=data[0];
+	s+='  '+data0;
 	if(data0)
+	{
 		data0user_active=data0.user_active;
+		s+='  '+data0user_active;
+	}
 		//s+='  '+data[0].user_active;
 	console.log(data0)
+	
 	return  s;
 }
 const [countdown_t, setCountdown] = useState(getCountdown());
+
 useEffect(() => {
   const timer = setInterval(() => {
     setCountdown(getCountdown());
@@ -73,8 +84,7 @@ useEffect(() => {
 	  <p class='left'>
 		<p>countdown_t: {countdown_t}</p>
 		<p>user_id: {user_id}</p>
-		<p>data[0]: {data0}</p>
-		<p>data[0].user_active: {data0user_active}</p>
+
       </p>
   </section>
   );

@@ -1,1 +1,1 @@
-export { LockedScreen, LockedScreen0 } from './LockedScreen';
+export { LockedScreen0,LockedScreenEnd,LockedScreenNoConnect } from './LockedScreen';

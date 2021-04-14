@@ -240,7 +240,7 @@ bool processJson(char* message) {
   if (root.containsKey("endSes_d")) {
 	endSes_d=(int)root["endSes_d"];
 	endSes_d*=1000;
-	if(endSes_d<10000) endSes_d=10000;
+	if(endSes_d<endSes_dm) endSes_d=endSes_dm; //TODO test why 60 is 30 (kick after 30)
 	else
 	if(endSes_d>endSes_dM) endSes_d=endSes_dM;	
   }  
@@ -275,7 +275,7 @@ bool processJson(char* message) {
   //============================= active user control or ret
   if (root.containsKey("user_id")) {
 	#ifdef CONFIG_DEBUG
-	  Serial.print("user_id "); ttab
+	  Serial.print("user_id, user_active: "); ttab
 	  //Serial.print((String)root["user_id"]);ttab
 	  Serial.print((int)root["user_id"]);ttab
 	  Serial.print(user_active);
@@ -537,7 +537,12 @@ void loop() {
   
   	if(user_active!=0 && (millis()>user_endSes_t || idle_mode_start_t==0) )
 	{ //user_active session end, kick him
+	#ifdef CONFIG_DEBUG
+    Serial.print("kick: ");
+    Serial.println(user_active);
+	#endif
 		user_active=0;	sendState();
+
 	}
   if(idle_mode_start_t>0 && millis()>idle_mode_start_t) //idle mode = white color //TODO anim black, delay(2000), fade to White
   { //start of idle mode (white color)
