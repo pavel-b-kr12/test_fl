@@ -24,6 +24,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
     if (data && data.length) {
       const color = rgbStringify(data[0].color);
       setActiveColor(color);
+	  console.log('useEffect',data[0]);
     }
     return null;
   }, [data,setActiveColor]);
@@ -110,6 +111,8 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		window.location.href = "https://tsum.ua/";//test: if(localStorage.getItem('test_redir')) redir();
 	}
 	
+	console.log('all: ',data[0]);
+	
 	if(data[0])
 	{
 		//console.log(data[0], data[0].user_active, user_id, parseInt(data[0].user_active)==user_id, gm_active_till_t-now_t); 
@@ -151,7 +154,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 	{//no data from ESP
 		if(window.location.search.includes('testesp'))
 		{	//'?testesp'
-			return <ScreenTest mqtt={mqtt} data={data} />
+			return <ScreenTest mqtt={mqtt} data={"-"} />
 		}
 		/* //TODO think if this need and how
 		if(gm_active_till_t)

@@ -37,6 +37,7 @@ const getCountdown = () => {
 	if(data0)
 		data0user_active=data0.user_active;
 		//s+='  '+data[0].user_active;
+	console.log(data0)
 	return  s;
 }
 const [countdown_t, setCountdown] = useState(getCountdown());
@@ -52,7 +53,6 @@ useEffect(() => {
   return (
   <section className='locked-screen'>
     <p className='locked-info'></p>
-    <p ></p>
 	<button onClick={() => onSelectEff('rnd')}>rnd</button>
 	<button onClick={() => onSelectEff('fade_all_but_1')}>fade_all_but_1</button>
 	<button onClick={() => onSelectEff('blink_1')}>blink_1 (TODO)</button>
@@ -70,7 +70,7 @@ useEffect(() => {
       <img src={timerBg} alt='timer' className='timer-bg' />
       <CountDownTimer timeLeft={countdown_t} />
     </div>
-	      <p>
+	  <p class='left'>
 		<p>countdown_t: {countdown_t}</p>
 		<p>user_id: {user_id}</p>
 		<p>data[0]: {data0}</p>
