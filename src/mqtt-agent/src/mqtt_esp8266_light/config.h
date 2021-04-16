@@ -1,5 +1,4 @@
-// Enables Serial and print statements
-#define CONFIG_DEBUG
+//#define CONFIG_DEBUG // Enables Serial and print statements
 
 #define use_pinD3
 
@@ -84,4 +83,3 @@ enum strip {
 //  0 = Explicitly set the LED_BUILTIN to LOW.
 //  1 = Explicitly set the LED_BUILTIN to HIGH. (Off for Wemos D1 Mini)
 //#define CONFIG_LED_BUILTIN_MODE -1
-

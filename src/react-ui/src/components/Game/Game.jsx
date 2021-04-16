@@ -80,7 +80,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 	
 	if(gm_active_till_t)
 	{
-		let recently_d=2*60*1000;
+		let recently_d=1.5*60*1000;
 		
 		if(now_t < gm_active_till_t)
 		{
