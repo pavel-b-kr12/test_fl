@@ -140,6 +140,9 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 				{
 					gm_active_till_t=Math.floor(now_t+GAME_TIME_PLAY*1000);
 					localStorage.setItem('gm_active_till_t',gm_active_till_t);
+					
+					localStorage.setItem('showHello',now_t);
+					
 				}
 			}
 			else

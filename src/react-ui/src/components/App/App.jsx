@@ -13,7 +13,7 @@ let now_t=new Date().getTime();
 let showHello = parseInt(localStorage.getItem('showHello'));
 let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
 
-if((!showHello || now_t > showHello+60000*2) && (!gm_active_till_t || now_t>gm_active_till_t))
+if((!showHello || now_t > showHello+60000*3) && (!gm_active_till_t || now_t>gm_active_till_t))
 {
   return <LockedScreenHello />
 }

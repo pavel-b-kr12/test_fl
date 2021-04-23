@@ -32,7 +32,20 @@ export const LockedScreenHello = () => (
       <img className='lotus-5' src={lotusViolet} alt="lotusViolet" />
       <img className='lotus-6' src={lotusYellow} alt="lotusYellow" />
     </div>
-       <button className="button" onClick={function() {localStorage.setItem('showHello', new Date().getTime()); window.location.reload()}}>Розпочати</button>
+       <button className="button" onClick={function() {
+		////-------	start timer imediately
+		/*
+		let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
+		if(!gm_active_till_t) //at start of active
+		{
+			gm_active_till_t=Math.floor(now_t+GAME_TIME_PLAY*1000);
+			localStorage.setItem('gm_active_till_t',gm_active_till_t);
+		}
+		*/
+		//-------		
+		localStorage.setItem('showHello', new Date().getTime()); 
+		   window.location.reload();
+	   }}>Розпочати</button>
     </div>
   </section>
 );
