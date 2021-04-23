@@ -52,7 +52,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 //return <CountDownTimer />
 //return <LockedScreenEnd />
 //return <LockedScreen0 />
-	//console.log('0');
+//console.log('0');
 	let now_t=new Date().getTime();
 	
 	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
@@ -102,7 +102,6 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 			gm_active_till_t=null;
 		}
 	}
-	//console.log('1',data[0] );
 	//console.log('all: ',data[0]);
 	if(data[0])
 	{
@@ -113,7 +112,8 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		if (user_active===0)
 		{
 			if(bRunRecently) 
-			{//some time to other people can react on game open
+			//block last user for some time to other people can react on game open
+			{
 				//TODO can be smaller than GAME_TIME_PLAY, if no other active users appear
 				//TODO2 do not off game if nobody else connected
 				return redir();
@@ -133,7 +133,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 				}
 			}
 			else
-			{
+			{ //block other users
 				if(bRunRecently)
 					return redir();
 				else
