@@ -52,6 +52,16 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 //return <CountDownTimer />
 //return <LockedScreenEnd />
 //return <LockedScreen0 />
+/*
+  return (
+    <Controls
+      mqtt={mqtt}
+      gameTime={gameTime}
+      activeColor={activeColor}
+      setActiveColor={setActiveColor}
+    />
+  );
+  */
 //console.log('0');
 	let now_t=new Date().getTime();
 	

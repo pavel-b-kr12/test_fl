@@ -14,4 +14,8 @@
 .left p {
 	float: left;
 }
+.rangeCRGB {
+	width: 50vw;
+	height: 5vh;
+}
 

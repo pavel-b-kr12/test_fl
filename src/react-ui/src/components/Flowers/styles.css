@@ -19,13 +19,13 @@
   line-height: 1.5;
   width: 240px;
   position: absolute;
-  bottom: 50px;
+  bottom: 10px;
   padding: 5px 30px;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, .6);
 }
-
+/*
 @media screen and (max-height: 800px) {
   .flowers-field {
     height: 45vw;
@@ -44,3 +44,4 @@
     height: 540px;
   } 
 }
+*/

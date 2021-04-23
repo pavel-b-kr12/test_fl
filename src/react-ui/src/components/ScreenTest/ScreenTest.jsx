@@ -26,7 +26,16 @@ export const ScreenTest = ({ mqtt, data }) => {
       req
     );
   };
+  const onSetCRGB = () => {
+	  let req= generateMessage(`{ "r": ${CRGB.r}, "g": ${CRGB.g}, "b": ${CRGB.b} }`, user_id, GAME_TIME_PLAY, idle_d);
+	  console.log('onSetCRGB',req);
+    mqtt.publish(
+      MQTT_TOPIC_PUBLISH,
+      req
+    );
+  };
 
+var CRGB={r:0,g:0,b:0};
 var data0='';
 var data0user_active='';
 // const [data0, setdata0] = useState(null);
@@ -64,28 +73,30 @@ useEffect(() => {
   return (
   <section className='locked-screen'>
     <p className='locked-info'></p>
-	<button class='btn1' onClick={() => onSelectEff('rnd')}>rnd</button>
-	<button class='btn1' onClick={() => onSelectEff('fade_all_but_1')}>fade_all_but_1</button>
-	<button class='btn1' onClick={() => onSelectEff('blink_1')}>blink_1 (TODO)</button>
-	<button class='btn1' onClick={() => onSelectEff('epileptogen')}>epileptogen (TODO)</button>
-	<button class='btn1' onClick={() => onSetC(255,0,0)}>R</button>
-	<button class='btn1' onClick={() => onSetC(0,255,0)}>G</button>
-	<button class='btn1' onClick={() => onSetC(0,0,255)}>B</button>
-	<button class='btn1' onClick={() => onSetC(0,0,0)}>0</button>
-	<button class='btn1' onClick={() => onSetC(255,255,255)}>255,255,255</button>
-	<button class='btnB' onClick={() => {localStorage.setItem('gm_active_till_t',Math.floor(new Date().getTime()+20*1000));}}>set timer 20</button>
-	<button class='btnB' onClick={() => {localStorage.removeItem('gm_active_till_t');}}>clear timer</button>
-	<button class='btnB' onClick={() => {localStorage.removeItem('gm_active_till_t');localStorage.removeItem('user_id');user_id=null;}}>remove user</button>
-
+	<button className='btn1' onClick={() => onSelectEff('rnd')}>rnd</button>
+	<button className='btn1' onClick={() => onSelectEff('fade_all_but_1')}>fade_all_but_1</button>
+	<button className='btn1' onClick={() => onSelectEff('blink_1')}>blink_1 (TODO)</button>
+	<button className='btn1' onClick={() => onSelectEff('epileptogen')}>epileptogen (TODO)</button>
+	<button className='btn1' onClick={() => onSetC(255,0,0)}>R</button>
+	<button className='btn1' onClick={() => onSetC(0,255,0)}>G</button>
+	<button className='btn1' onClick={() => onSetC(0,0,255)}>B</button>
+	<button className='btn1' onClick={() => onSetC(0,0,0)}>0</button>
+	<button className='btn1' onClick={() => onSetC(255,255,255)}>255,255,255</button>
+	<button className='btnB' onClick={() => {localStorage.setItem('gm_active_till_t',Math.floor(new Date().getTime()+20*1000));}}>set timer 20</button>
+	<button className='btnB' onClick={() => {localStorage.removeItem('gm_active_till_t');}}>clear timer</button>
+	<button className='btnB' onClick={() => {localStorage.removeItem('gm_active_till_t');localStorage.removeItem('user_id');user_id=null;}}>remove user</button>
+	<input className='rangeCRGB' id='inr' type="range" min="0" max="255" onInput={function(){ CRGB.r=document.getElementById("inr").value; onSetCRGB();}}/>
+	<input className='rangeCRGB' id='ing' type="range" min="0" max="255" onInput={function(){ CRGB.g=document.getElementById("ing").value; onSetCRGB();}}/>
+	<input className='rangeCRGB' id='inb' type="range" min="0" max="255" onInput={function(){ CRGB.b=document.getElementById("inb").value; onSetCRGB();}}/>
+	
     <div className='timer-wrapper'>
       <img src={timerBg} alt='timer' className='timer-bg' />
       <CountDownTimer timeLeft={countdown_t} />
     </div>
-	  <p class='left'>
-		<p>countdown_t: {countdown_t}</p>
+	  <div className='left'>
+		<p>countdown_t: {countdown_t}</p><br/>
 		<p>user_id: {user_id}</p>
-
-      </p>
+      </div>
   </section>
   );
 };
