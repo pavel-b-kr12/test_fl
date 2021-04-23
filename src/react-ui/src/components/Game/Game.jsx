@@ -9,7 +9,7 @@ import {
 import { rgbStringify } from '../../utils';
 //import { setTimer } from '../../api';
 import Controls from '../Controls';
-import {LockedScreen0,LockedScreenEnd, LockedScreenNoConnect} from '../LockedScreen';
+import {LockedScreenHello, LockedScreen0,LockedScreenEnd, LockedScreenNoConnect} from '../LockedScreen';
 import {ScreenTest} from '../ScreenTest';
 
 
@@ -20,7 +20,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
     if (data && data.length) {
       const color = rgbStringify(data[0].color);
       setActiveColor(color);
-	  //console.log('useEffect',data[0]);
+	  console.log('useEffect',data[0]);
     }
     return null;
   }, [data,setActiveColor]);
@@ -46,12 +46,13 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
       setGameTime(Math.round((gm_active_till_t - now_t) / 1000));
       return;
     };
-
   };
 
 //test
 //return <CountDownTimer />
-	
+//return <LockedScreenEnd />
+//return <LockedScreen0 />
+	//console.log('0');
 	let now_t=new Date().getTime();
 	
 	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
@@ -64,7 +65,9 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		{	//'?testesp'
 			return <ScreenTest mqtt={mqtt} data={data} redir={1} />
 		}
-
+		
+		return <LockedScreenEnd />;
+/*
 		if(now_t>parseInt(localStorage.getItem('redir_visited'))+10*24*60*60*1000) localStorage.removeItem('redir_visited'); //redirect once per 10 deay
 		if(localStorage.getItem('redir_visited'))
 		{
@@ -75,16 +78,16 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 			localStorage.setItem('redir_visited',now_t)
 			window.location.href = "https://tsum.ua/";//test: if(localStorage.getItem('test_redir')) redir();
 		}
+		*/
 	}
 	//TODO localStorage.removeItem('redir_visited')
 	
 	if(gm_active_till_t)
 	{
-		let recently_d=1.5*60*1000;
+		let recently_d=2*60*1000;
 		
 		if(now_t < gm_active_till_t)
-		{
-			//bNotEnd=true;
+		{	//bNotEnd=true;
 		}
 		else
 		if(now_t < gm_active_till_t+recently_d)
@@ -99,10 +102,11 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 			gm_active_till_t=null;
 		}
 	}
-
+	//console.log('1',data[0] );
 	//console.log('all: ',data[0]);
 	if(data[0])
 	{
+		//console.log('data',data[0]==true );
 		//console.log(data[0], data[0].user_active, user_id, parseInt(data[0].user_active)==user_id, gm_active_till_t-now_t); 
 		var user_active=parseInt(data[0].user_active);
 		
@@ -115,6 +119,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 				return redir();
 			}
 			//else show interface to all users
+			//?? now rasp return 0 wo ESP connected
 		}
 		else
 		if (user_active)
@@ -130,13 +135,12 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 			else
 			{
 				if(bRunRecently)
-				{
 					return redir();
-				}
 				else
 					return <LockedScreen0 />
 			}
 		}
+		else return <LockedScreenHello /> //TODO check
 	}
 	else
 	{	//no data from ESP
@@ -144,7 +148,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		{	//'?testesp'
 			return <ScreenTest mqtt={mqtt} data={"-"} />
 		}
-		
+		//console.log('LockedScreenNoConnect: ');
 		return <LockedScreenNoConnect />
 	}
 	

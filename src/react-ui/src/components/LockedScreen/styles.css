@@ -1,3 +1,74 @@
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src: url('./fonts/proxima-nova-light/proxima_nova_light.svg');
+  src: url('./fonts/proxima-nova-light/proxima_nova_light.eot'); /* IE 9 Compatibility Mode */
+  src: url('./fonts/proxima-nova-light/proxima_nova_light.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+    url('./fonts/proxima-nova-light/proxima_nova_light.woff2') format('woff2'), /* Super Modern Browsers */
+    url('./fonts/proxima-nova-light/proxima_nova_light.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+    url('./fonts/proxima-nova-light/proxima_nova_light.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('./fonts/proxima-nova-light/proxima_nova_light.svg#proxima_nova_light') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+@font-face {
+  font-family: 'Proxima Nova Semibold';
+  src: url('./fonts/proxima-nova-semibold/proxima_nova_semibold.eot'); /* IE 9 Compatibility Mode */
+  src: url('./fonts/proxima-nova-semibold/proxima_nova_semibold.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+    url('./fonts/proxima-nova-semibold/proxima_nova_semibold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('./fonts/proxima-nova-semibold/proxima_nova_semibold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+    url('./fonts/proxima-nova-semibold/proxima_nova_semibold.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('./fonts/proxima-nova-semibold/proxima_nova_semibold.svg#proxima_nova_semibold') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+
+.logo {
+  width: 100px;
+  display: block;
+  margin: 0 auto 30px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.info p {
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 220px;
+}
+.qr-code {
+  margin: 20px 0 20px;
+  width: 170px;
+}
+#button {
+  display: none;
+}
+.button {
+  display: block;
+  width: 260px;
+  text-align: center;
+  padding: 12px 0;
+  border: 1px solid rgb(244,98,233);
+  background: rgba(0,0,0,0);
+  color: #FFF;
+}
+p.android-info {
+  max-width: 270px;
+}
+
+@media screen and (max-width: 374px) {
+  main {
+    font-size: 20px;
+    padding: 50px 10px 0;
+  }
+  .logo {
+    width: 100px;
+    margin: 0 auto 20px;
+  }
+  .button {
+    width: 220px;
+  }
+}
+
+
 .locked-screen {
   display: flex;
   flex-direction: column;
@@ -117,3 +188,4 @@
     transform: rotate(360deg);
   }
 }
+

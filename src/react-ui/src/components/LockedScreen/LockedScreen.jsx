@@ -10,11 +10,20 @@ import lotusYellow from '../../assets/lotus-yellow.svg'
 // import timerBg from '../../assets/timer-bg.svg';
 // import CountDownTimer from '../CountDownTimer';
 
-export const LockedScreenEnd = (/*{ appTime }*/) => (
+
+import logo from '../../assets/logo.svg';
+// <h3>РОЗФАРБУЙ МЕНЕ!</h3>
+//TODO reload better https://stackoverflow.com/questions/53215285/how-can-i-force-a-component-to-re-render-with-hooks-in-react
+export const LockedScreenHello = () => (
+
   <section className='locked-screen'>
-    <p className='locked-info'>Дякую за твій дотик!</p>
-    <p>Ти справжній митець.</p>
-    <p>Спробуй ще через пару хвилини.</p>
+      <a href='https://tsum.ua/' className='logo' target='_blank' rel="noreferrer">
+        <img src={logo} alt='ЦУМ Киев'/>
+      </a>
+    <div className="info">
+      <p className='locked-info'>За мить ти відчуєш</p>
+	  <p className='locked-info'>себе художником.</p>
+	  <p className='locked-info'>РОЗФАРБУЙ МЕНЕ!</p>
     <div className='locked-img'>
       <img className='lotus-1' src={lotusAqua} alt="lotusAqua" />
       <img className='lotus-2' src={lotusGreen} alt="lotusGreen" />
@@ -23,18 +32,20 @@ export const LockedScreenEnd = (/*{ appTime }*/) => (
       <img className='lotus-5' src={lotusViolet} alt="lotusViolet" />
       <img className='lotus-6' src={lotusYellow} alt="lotusYellow" />
     </div>
-    {/* <div className='timer-wrapper'>
-      <img src={timerBg} alt='timer' className='timer-bg' />
-      <CountDownTimer timeLeft={appTime} />
-    </div> */}
+       <button className="button" onClick={function() {localStorage.setItem('showHello', new Date().getTime()); window.location.reload()}}>Розпочати</button>
+    </div>
   </section>
 );
 
 export const LockedScreen0 = () => (
   <section className='locked-screen'>
-    <p className='locked-info'>Зачекайте,</p>
-    <p>зараз управлiння</p>
-    <p>кимось зайняте</p>
+      <a href='https://tsum.ua/' className='logo' target='_blank' rel="noreferrer">
+        <img src={logo} alt='ЦУМ Киев'/>
+      </a>
+    <p className='locked-info'>Зачекай, будь ласка,</p>
+    <p className='locked-info'>на свій сеанс.</p>
+    <p className='locked-info'>Наразі хтось інший</p>
+    <p className='locked-info'>створює шедевр.</p>
     <div className='locked-img'>
       <img className='lotus-1' src={lotusAqua} alt="lotusAqua" />
       <img className='lotus-2' src={lotusGreen} alt="lotusGreen" />
@@ -48,6 +59,9 @@ export const LockedScreen0 = () => (
 
 export const LockedScreenNoConnect = () => (
   <section className='locked-screen'>
+      <a href='https://tsum.ua/' className='logo' target='_blank' rel="noreferrer">
+        <img src={logo} alt='ЦУМ Киев'/>
+      </a>
     <p className='locked-info'>Вибачайте,</p>
     <p>нема зв'язку</p>
     <p>з сервером  :(</p>
@@ -62,7 +76,27 @@ export const LockedScreenNoConnect = () => (
   </section>
 );
 
-
-
-
-
+export const LockedScreenEnd = (/*{ appTime }*/) => (
+  <section className='locked-screen'>
+      <a href='https://tsum.ua/' className='logo' target='_blank' rel="noreferrer">
+        <img src={logo} alt='ЦУМ Киев'/>
+      </a>
+    <p className='locked-info'>Дякую за твій дотик!</p>
+    <p>Ти справжній митець.</p>
+    <p>Спробуй ще</p>
+    <p>через 2 хвилини.</p>
+    <div className='locked-img'>
+      <img className='lotus-1' src={lotusAqua} alt="lotusAqua" />
+      <img className='lotus-2' src={lotusGreen} alt="lotusGreen" />
+      <img className='lotus-3' src={lotusOrange} alt="lotusOrange" />
+      <img className='lotus-4' src={lotusPink} alt="lotusPink" />
+      <img className='lotus-5' src={lotusViolet} alt="lotusViolet" />
+      <img className='lotus-6' src={lotusYellow} alt="lotusYellow" />
+    </div>
+	<button className="button" onClick={function() {localStorage.setItem('showHello', new Date().getTime()); window.location='https://TSUM.UA'}}>TSUM.UA</button>
+    {/* <div className='timer-wrapper'>
+      <img src={timerBg} alt='timer' className='timer-bg' />
+      <CountDownTimer timeLeft={appTime} />
+    </div> */}
+  </section>
+);
