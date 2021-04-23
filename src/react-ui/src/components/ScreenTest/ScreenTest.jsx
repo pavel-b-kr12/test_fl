@@ -64,15 +64,15 @@ useEffect(() => {
   return (
   <section className='locked-screen'>
     <p className='locked-info'></p>
-	<button onClick={() => onSelectEff('rnd')}>rnd</button>
-	<button onClick={() => onSelectEff('fade_all_but_1')}>fade_all_but_1</button>
-	<button onClick={() => onSelectEff('blink_1')}>blink_1 (TODO)</button>
-	<button onClick={() => onSelectEff('epileptogen')}>epileptogen (TODO)</button>
-	<button onClick={() => onSetC(255,0,0)}>R</button>
-	<button onClick={() => onSetC(0,255,0)}>G</button>
-	<button onClick={() => onSetC(0,0,255)}>B</button>
-	<button onClick={() => onSetC(0,0,0)}>0</button>
-	<button onClick={() => onSetC(255,255,255)}>255,255,255</button>
+	<button class='btn1' onClick={() => onSelectEff('rnd')}>rnd</button>
+	<button class='btn1' onClick={() => onSelectEff('fade_all_but_1')}>fade_all_but_1</button>
+	<button class='btn1' onClick={() => onSelectEff('blink_1')}>blink_1 (TODO)</button>
+	<button class='btn1' onClick={() => onSelectEff('epileptogen')}>epileptogen (TODO)</button>
+	<button class='btn1' onClick={() => onSetC(255,0,0)}>R</button>
+	<button class='btn1' onClick={() => onSetC(0,255,0)}>G</button>
+	<button class='btn1' onClick={() => onSetC(0,0,255)}>B</button>
+	<button class='btn1' onClick={() => onSetC(0,0,0)}>0</button>
+	<button class='btn1' onClick={() => onSetC(255,255,255)}>255,255,255</button>
 	<button class='btnB' onClick={() => {localStorage.setItem('gm_active_till_t',Math.floor(new Date().getTime()+20*1000));}}>set timer 20</button>
 	<button class='btnB' onClick={() => {localStorage.removeItem('gm_active_till_t');}}>clear timer</button>
 	<button class='btnB' onClick={() => {localStorage.removeItem('gm_active_till_t');localStorage.removeItem('user_id');user_id=null;}}>remove user</button>

@@ -5,6 +5,12 @@
 	background-color: #159;
 	color: #efc;
 }
+.btn1 {
+	width: 50vw;
+	height: 4vh;
+	background-color: #456;
+	color: #efc;
+}
 .left p {
 	float: left;
 }
