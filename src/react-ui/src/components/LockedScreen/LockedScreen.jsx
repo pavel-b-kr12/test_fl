@@ -21,8 +21,8 @@ export const LockedScreenHello = () => (
         <img src={logo} alt='ЦУМ Киев'/>
       </a>
     <div className="info">
-      <p className='locked-info'>За мить ти відчуєш</p>
-	  <p className='locked-info'>себе художником.</p>
+      <p className='locked-info'>За мить ти відчуєш<br />
+	  себе художником.</p>
 	  <p className='locked-info'>РОЗФАРБУЙ МЕНЕ!</p>
     <div className='locked-img'>
       <img className='lotus-1' src={lotusAqua} alt="lotusAqua" />
