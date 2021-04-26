@@ -43,12 +43,13 @@
 }
 .button {
   display: block;
-  width: 260px;
+  width: 220px;
   text-align: center;
   padding: 10px 0;
   border: 1px solid rgb(244,98,233);
   background: rgba(0,0,0,0);
   color: #FFF;
+  margin-top: 40px;
 }
 p.android-info {
   max-width: 270px;
@@ -81,14 +82,20 @@ p.android-info {
 }
 .locked-img {
   position: relative;
-  margin-top: 30px;
+  /*
   width: 320px;
   height: 200px;
+  */
+  width: 140px;
+  height: 110px;
 }
 .locked-img > img {
   position: absolute;
-  width: 320px;
-  height: 200px;
+  /*width: 35vw;*/
+  /*height: 200px;*/
+  width: 140px;
+  height: 110px;
+  
   animation-name: fade;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;

@@ -33,7 +33,7 @@ const Flowers = ({ activeColor }) => {
           src={flowers[flower]}
          />
       ))}
-      <p className='flowers-info'>Обери мені відтінок та зафарбуй квітки.</p>
+      <p className='flowers-info'>Обери мені відтінок та розфарбуй квіти.</p>
     </section>
   )
 }
