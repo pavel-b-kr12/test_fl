@@ -170,6 +170,15 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 		return <ScreenTest mqtt={mqtt} data={data} />
 	}
 
+//----- quick fix for uninvestigated case
+let showHello = parseInt(localStorage.getItem('showHello'));
+//let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
+
+if((!showHello || now_t > showHello+60000*3))
+{// && (!gm_active_till_t || now_t>gm_active_till_t)
+  return <LockedScreenHello />
+}
+//-----
   return (
     <Controls
       mqtt={mqtt}
