@@ -8,11 +8,17 @@ import Flowers from '../Flowers';
 
 const Controls = ({ gameTime, activeColor, setActiveColor, mqtt }) => {
   const onSelectColor = color => {
-    mqtt.publish(
-      MQTT_TOPIC_PUBLISH,
-      generateMessage(COLORS[color], user_id, GAME_TIME_PLAY, idle_d)
-    );
-    setActiveColor(color);
+	let now_t = new Date().getTime();
+	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
+	let recently_d=2*60*1000;
+	if(!gm_active_till_t || now_t < gm_active_till_t || now_t>gm_active_till_t+recently_d)
+	{
+		mqtt.publish(
+		  MQTT_TOPIC_PUBLISH,
+		  generateMessage(COLORS[color], user_id, GAME_TIME_PLAY, idle_d)
+		);
+		setActiveColor(color);
+	}
   };
 
   return (

@@ -52,6 +52,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
       return;
 		}
 		else{
+			let recently_d=2*60*1000;
 			//quick fix for react do not refresh page
 			if(now_t < gm_active_till_t+recently_d) 
 			{
