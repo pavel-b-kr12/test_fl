@@ -42,8 +42,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
 	
 
-	
-	
+
 
     if (gm_active_till_t) {
 		if(now_t < gm_active_till_t)
@@ -51,14 +50,18 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
       setGameTime(Math.round((gm_active_till_t - now_t) / 1000));
       return;
 		}
+		
 		else{
 			let recently_d=2*60*1000;
 			//quick fix for react do not refresh page
 			if(now_t < gm_active_till_t+recently_d) 
 			{
-				 window.location.reload();
+				if(timer)
+				clearInterval(timer);
+				 //window.location.reload();
 			}
 		}
+		
 
     };
   };
