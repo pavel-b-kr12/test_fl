@@ -15,6 +15,7 @@ import {ScreenTest} from '../ScreenTest';
 
 const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
   const [gameTime, setGameTime] = useState(null);
+  const recently_d=2*60*1000;
 
   useEffect(() => {
     if (data && data.length) {
@@ -29,9 +30,17 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 
   useEffect(() => {
     const timer =  setInterval(() => {
-		let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
+		let now_t = new Date().getTime();
+
+			
 		let countdown=(gm_active_till_t&&(gm_active_till_t-new Date().getTime())>0)?	Math.floor((gm_active_till_t-new Date().getTime())/1000) :0;
-		setGameTime(countdown);
+		
+			if(now_t>gm_active_till_t&& now_t < gm_active_till_t+recently_d) 
+			{
+
+			}
+			else
+			setGameTime(countdown);
 		}, 1000);
     return () => clearInterval(timer);
   }, [gameTime]);
@@ -41,28 +50,21 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
     let now_t = new Date().getTime();
 	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
 	
-
-
-
     if (gm_active_till_t) {
 		if(now_t < gm_active_till_t)
 		{
-      setGameTime(Math.round((gm_active_till_t - now_t) / 1000));
-      return;
+		  setGameTime(Math.round((gm_active_till_t - now_t) / 1000));
+		  return;
 		}
-		
 		else{
-			let recently_d=2*60*1000;
+			//if(timer)
+			//	clearInterval(timer);
 			//quick fix for react do not refresh page
-			if(now_t < gm_active_till_t+recently_d) 
-			{
-				if(timer)
-				clearInterval(timer);
+			//if(now_t < gm_active_till_t+recently_d) 
+			//{
 				 //window.location.reload();
-			}
+			//}
 		}
-		
-
     };
   };
 
@@ -112,8 +114,6 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 	
 	if(gm_active_till_t)
 	{
-		let recently_d=2*60*1000;
-		
 		if(now_t < gm_active_till_t)
 		{	//bNotEnd=true;
 		}

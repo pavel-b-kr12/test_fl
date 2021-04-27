@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6144a258.chunk.css",
+    "main.js": "/static/js/main.66339778.chunk.js",
+    "main.js.map": "/static/js/main.66339778.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.110e1566.js",
+    "runtime-main.js.map": "/static/js/runtime-main.110e1566.js.map",
+    "static/js/2.6ee0b6ea.chunk.js": "/static/js/2.6ee0b6ea.chunk.js",
+    "static/js/2.6ee0b6ea.chunk.js.map": "/static/js/2.6ee0b6ea.chunk.js.map",
+    "static/js/3.fe3f4f53.chunk.js": "/static/js/3.fe3f4f53.chunk.js",
+    "static/js/3.fe3f4f53.chunk.js.map": "/static/js/3.fe3f4f53.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.6144a258.chunk.css.map": "/static/css/main.6144a258.chunk.css.map",
+    "static/js/2.6ee0b6ea.chunk.js.LICENSE.txt": "/static/js/2.6ee0b6ea.chunk.js.LICENSE.txt",
+    "static/media/logo.ea23c954.svg": "/static/media/logo.ea23c954.svg",
+    "static/media/lotus-aqua.e0d01c2a.svg": "/static/media/lotus-aqua.e0d01c2a.svg",
+    "static/media/lotus-green.92564941.svg": "/static/media/lotus-green.92564941.svg",
+    "static/media/lotus-orange.17c89be0.svg": "/static/media/lotus-orange.17c89be0.svg",
+    "static/media/lotus-pink.87b2eeeb.svg": "/static/media/lotus-pink.87b2eeeb.svg",
+    "static/media/lotus-violet.8a14d3ad.svg": "/static/media/lotus-violet.8a14d3ad.svg",
+    "static/media/lotus-yellow.dc894035.svg": "/static/media/lotus-yellow.dc894035.svg",
+    "static/media/main-bg-blue.f8e708b8.jpg": "/static/media/main-bg-blue.f8e708b8.jpg",
+    "static/media/main-bg-green.d9f1c009.jpg": "/static/media/main-bg-green.d9f1c009.jpg",
+    "static/media/main-bg-orange.087156be.jpg": "/static/media/main-bg-orange.087156be.jpg",
+    "static/media/main-bg-pink.7e61175a.jpg": "/static/media/main-bg-pink.7e61175a.jpg",
+    "static/media/main-bg-violet.0e479edf.jpg": "/static/media/main-bg-violet.0e479edf.jpg",
+    "static/media/main-bg-yellow.94fa6b70.jpg": "/static/media/main-bg-yellow.94fa6b70.jpg",
+    "static/media/main-bg.f8215fc8.jpg": "/static/media/main-bg.f8215fc8.jpg",
+    "static/media/styles.css": "/static/media/proxima_nova_semibold.c93f5b31.woff",
+    "static/media/timer-bg.eda28634.svg": "/static/media/timer-bg.eda28634.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.110e1566.js",
+    "static/js/2.6ee0b6ea.chunk.js",
+    "static/css/main.6144a258.chunk.css",
+    "static/js/main.66339778.chunk.js"
+  ]
+}
