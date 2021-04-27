@@ -39,12 +39,26 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
   const setGameTimer = () => {
 
     let now_t = new Date().getTime();
-
 	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
+	
 
-    if (gm_active_till_t && (now_t < gm_active_till_t)) {
+	
+	
+
+    if (gm_active_till_t) {
+		if(now_t < gm_active_till_t)
+		{
       setGameTime(Math.round((gm_active_till_t - now_t) / 1000));
       return;
+		}
+		else{
+			//quick fix for react do not refresh page
+			if(now_t < gm_active_till_t+recently_d) 
+			{
+				 window.location.reload();
+			}
+		}
+
     };
   };
 
@@ -64,8 +78,8 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
   */
 //console.log('0');
 	let now_t=new Date().getTime();
-	
 	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
+	
 	let bRunRecently=false;
 	//let bNotEnd=false;
 
