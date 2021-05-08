@@ -1,6 +1,7 @@
 //#define CONFIG_DEBUG // Enables Serial and print statements
 
 #define use_pinD3
+#define use_pinD1_not7
 
 long endSes_d=60000;
 long idle_d=40000;
@@ -38,13 +39,18 @@ enum strip {
 // In case of RGB(W): red, green, blue(, white) is used
 // All values need to be present, if they are not needed, set to -1,
 // it will be ignored.
-#define CONFIG_PIN_RED   14  // For RGB(W)
-#define CONFIG_PIN_GREEN 12  // For RGB(W)
-#define CONFIG_PIN_BLUE  13  // For RGB(W)
-#ifdef use_pinD3
-#define CONFIG_PIN_WHITE 0 // For BRIGHTNESS and RGBW
+#define CONFIG_PIN_RED   14  // For RGB(W) //D5
+#define CONFIG_PIN_GREEN 12  // For RGB(W) //D6
+#ifdef use_pinD1_not7
+#define CONFIG_PIN_BLUE  5  // For RGB(W) //D1
 #else
-#define CONFIG_PIN_WHITE 15  // For BRIGHTNESS and RGBW
+#define CONFIG_PIN_BLUE  13  // For RGB(W) //D7
+#endif
+
+#ifdef use_pinD3
+#define CONFIG_PIN_WHITE 0 // For BRIGHTNESS and RGBW //D3
+#else
+#define CONFIG_PIN_WHITE 15  // For BRIGHTNESS and RGBW //D8
 #endif
 // WiFi
 #define CONFIG_WIFI_SSID "TSUM_FlowersHub"

@@ -397,17 +397,38 @@ bool processJson(char* message) {
 
 long renew_t=20000;
 void sendState() {
+	sendState(false);
+}
+void sendState(bool bActiveUserKickedNow_restoreWhite) {
 	renew_t=millis()+10000+random(1000,2000);
   StaticJsonBuffer<BUFFER_SIZE> jsonBuffer;
 
   JsonObject& root = jsonBuffer.createObject();
 
   root["state"] = (stateOn) ? CONFIG_MQTT_PAYLOAD_ON : CONFIG_MQTT_PAYLOAD_OFF;
+  
+  /*
+  if(bActiveUserKickedNow_restoreWhite) 
+  {
+	  red=255;
+	  green=255;
+	  blue=255;
+  }
+  */
   if (rgb) {
     JsonObject& color = root.createNestedObject("color");
-    color["r"] = red;
-    color["g"] = green;
-    color["b"] = blue;
+	if(bActiveUserKickedNow_restoreWhite) 
+	  {
+		color["r"] = 255;
+		color["g"] = 255;
+		color["b"] = 255;
+	  }
+	  else
+	  {
+		color["r"] = red;
+		color["g"] = green;
+		color["b"] = blue;
+	  }
   }
 
   root["user_active"] = user_active;
@@ -416,7 +437,7 @@ void sendState() {
   root["brightness"] = brightness;
 
   if (includeWhite) {
-    root["white_value"] = white;
+    root["white_value"] = bActiveUserKickedNow_restoreWhite?255:white;
   }
 
   if (rgb && colorfade) {
@@ -541,12 +562,12 @@ void loop() {
     Serial.print("kick: ");
     Serial.println(user_active);
 	#endif
-		user_active=0;	sendState();
+		user_active=0;	sendState(true);
 
 	}
   if(idle_mode_start_t>0 && millis()>idle_mode_start_t) //idle mode = white color //TODO anim black, delay(2000), fade to White
   { //start of idle mode (white color)
-	  user_active=0;  sendState();
+	  user_active=0;  sendState(true);
 	  
 	idle_mode_start_t=0;
 	  

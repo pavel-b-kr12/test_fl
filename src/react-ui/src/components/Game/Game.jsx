@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback  } from 'react';
 import { subscribe } from 'mqtt-react';
 
 import {
@@ -21,51 +21,47 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
     if (data && data.length) {
       const color = rgbStringify(data[0].color);
       setActiveColor(color);
-	  console.log('useEffect',data[0]);
+	  //console.log('useEffect',data[0]);
     }
     return null;
   }, [data,setActiveColor]);
 
-  useEffect(() => setGameTimer());
-
-  useEffect(() => {
-    const timer =  setInterval(() => {
+	useEffect(() => setGameTimer());
+	
+	const timer_calc = useCallback(() => {
 		let now_t = new Date().getTime();
-
+		let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
+		if(gm_active_till_t)
+		{
+			//---------- quick fix wrong clock case
+			let Mt=Math.floor(now_t+GAME_TIME_PLAY*1000);
+			if(gm_active_till_t && gm_active_till_t>Mt) {
+				gm_active_till_t=Mt-2000;
+				localStorage.setItem('gm_active_till_t', gm_active_till_t);
+			}
+			//----------	
 			
-		let countdown=(gm_active_till_t&&(gm_active_till_t-new Date().getTime())>0)?	Math.floor((gm_active_till_t-new Date().getTime())/1000) :0;
-		
 			if(now_t>gm_active_till_t&& now_t < gm_active_till_t+recently_d) 
 			{
 
 			}
 			else
-			setGameTime(countdown);
-		}, 1000);
+			{
+				let countdown=Math.floor((gm_active_till_t-now_t)/1000);
+				if(countdown<0) countdown=0;
+				else if(countdown>GAME_TIME_PLAY) countdown=60;
+				setGameTime(countdown);
+			}
+		}
+	}, [recently_d]);
+	
+  useEffect(() => {
+    const timer =  setInterval(timer_calc, 1000);
     return () => clearInterval(timer);
-  }, [gameTime]);
+  }, [gameTime,timer_calc]);
 
   const setGameTimer = () => {
-
-    let now_t = new Date().getTime();
-	let gm_active_till_t = parseInt(localStorage.getItem('gm_active_till_t'));
-	
-    if (gm_active_till_t) {
-		if(now_t < gm_active_till_t)
-		{
-		  setGameTime(Math.round((gm_active_till_t - now_t) / 1000));
-		  return;
-		}
-		else{
-			//if(timer)
-			//	clearInterval(timer);
-			//quick fix for react do not refresh page
-			//if(now_t < gm_active_till_t+recently_d) 
-			//{
-				 //window.location.reload();
-			//}
-		}
-    };
+	timer_calc();
   };
 
 //test
@@ -90,7 +86,7 @@ const Game = ({ activeColor, setActiveColor, data, mqtt }) => {
 	//let bNotEnd=false;
 
 	const redir = () => {
-		console.log('redir');
+		//console.log('redir');
 		if(window.location.search.includes('testesp'))
 		{	//'?testesp'
 			return <ScreenTest mqtt={mqtt} data={data} redir={1} />
