@@ -42,9 +42,8 @@ byte realGreen = 0;
 byte realBlue = 0;
 byte realWhite = 0;
 
-#define idle_mode_W_color	255  	//ifdef includeWhite
-#define idle_mode_RGB_color	0 		//ifdef includeWhite
-#define idle_mode_RGB_color_no_w	122  //if not def includeWhite
+
+
 
 bool stateOn = false;
 
@@ -235,6 +234,11 @@ bool processJson(char* message) {
   if (!root.success()) {
     Serial.println("parseObject() failed");
     return false;
+  }
+  
+  if(root.containsKey("id_esp")) { //check if msg not for this ESP board
+	  byte msg_for_id=(byte)root["id_esp"];
+	  if(msg_for_id!=ID_ESP && msg_for_id!=0) return false;
   }
   
   if (root.containsKey("endSes_d")) {
@@ -573,13 +577,13 @@ void loop() {
 	  
 	if(includeWhite)
 	{
-	 setColor(idle_mode_RGB_color,idle_mode_RGB_color,idle_mode_RGB_color,idle_mode_W_color);
+	 setColor(idle_mode_R,idle_mode_G,idle_mode_B,idle_mode_W);
 	 #ifdef disableW
-	 analogWrite(CONFIG_PIN_WHITE, idle_mode_W_color);
+	 analogWrite(CONFIG_PIN_WHITE, idle_mode_W);
 	 #endif
 	}
 	else
-	 setColor(idle_mode_RGB_color_no_w,idle_mode_RGB_color_no_w,idle_mode_RGB_color_no_w,0);
+	 setColor(idle_mode_R_no_w,idle_mode_G_no_w,idle_mode_B_no_w,0);
   }
   else
   {
@@ -683,12 +687,12 @@ void loop() {
 				cg=random(0,255);
 				cb=random(0,255);
 			}
-			v5=map(eff_stage, 0,2000, idle_mode_RGB_color, cr);
-			v6=map(eff_stage, 0,2000, idle_mode_RGB_color, cg);
-			v7=map(eff_stage, 0,2000, idle_mode_RGB_color, cb);
-			v3=map(eff_stage, 0,2000, idle_mode_W_color, cw);
+			v5=map(eff_stage, 0,2000, idle_mode_R, cr);
+			v6=map(eff_stage, 0,2000, idle_mode_G, cg);
+			v7=map(eff_stage, 0,2000, idle_mode_B, cb);
+			v3=map(eff_stage, 0,2000, idle_mode_W, cw);
 			setColor(v5, v6, v7, v3);
-			//setColor(v5,idle_mode_RGB_color,idle_mode_RGB_color,idle_mode_W_color);
+			//setColor(v5,idle_mode_G,idle_mode_B,idle_mode_W);
 		}
 		else
 			if(eff_stage<6000) //hold
@@ -706,12 +710,12 @@ void loop() {
 				cg=random(0,255);
 				cb=random(0,255);
 			}
-			v5=map(eff_stage, 9000,6000, idle_mode_RGB_color, cr);
-			v6=map(eff_stage, 9000,6000, idle_mode_RGB_color, cg);
-			v7=map(eff_stage, 9000,6000, idle_mode_RGB_color, cb);
-			v3=map(eff_stage, 9000,6000, idle_mode_W_color, cw);
+			v5=map(eff_stage, 9000,6000, idle_mode_R, cr);
+			v6=map(eff_stage, 9000,6000, idle_mode_G, cg);
+			v7=map(eff_stage, 9000,6000, idle_mode_B, cb);
+			v3=map(eff_stage, 9000,6000, idle_mode_W, cw);
 			setColor(v5, v6, v7, v3);
-			//setColor(v5,idle_mode_RGB_color,idle_mode_RGB_color,idle_mode_W_color);
+			//setColor(v5,idle_mode_G,idle_mode_W,idle_mode_W);
 		}
 			
 	}

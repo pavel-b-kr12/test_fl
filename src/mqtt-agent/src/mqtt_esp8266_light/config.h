@@ -1,13 +1,58 @@
 //#define CONFIG_DEBUG // Enables Serial and print statements
 
-#define use_pinD3
-#define use_pinD1_not7
+#define use_pinD3_not8 //pin of W
+#define use_pinD1_not7 //pin of B
+
+#define ID_ESP	3 //1...255    ; 0 or absense in MQTT msg means the msg is for all boards
 
 long endSes_d=60000;
 long idle_d=40000;
-#define endSes_dm	60000 //limit
-#define endSes_dM	180000 //limit
-#define idle_dM		180000 //limit
+
+#define endSes_dm	60000 //limit, but lower can be set from MQTT
+#define endSes_dM	180000 //limit, but lower can be set from MQTT
+#define idle_dM		180000 //limit, but lower can be set from MQTT
+
+
+#define idle_use_WHITE
+//#define idle_use_Y
+//#define idle_use_B
+
+#ifdef idle_use_WHITE
+#define idle_mode_W	255
+#define idle_mode_R	0
+#define idle_mode_G	0
+#define idle_mode_B	0
+
+//LEDs without white chennel
+#define idle_mode_R_no_w 255
+#define idle_mode_G_no_w 255
+#define idle_mode_B_no_w 255
+
+//------------
+#elif defined(idle_use_Y)
+#define idle_mode_W	0
+#define idle_mode_R	255
+#define idle_mode_G	255
+#define idle_mode_B	0
+
+#define idle_mode_R_no_w 122
+#define idle_mode_G_no_w 122
+#define idle_mode_B_no_w 0
+
+//------------
+#elif defined(idle_use_B)
+#define idle_mode_W	0
+#define idle_mode_R	0
+#define idle_mode_G	0
+#define idle_mode_B	255
+
+#define idle_mode_R_no_w 0
+#define idle_mode_G_no_w 0
+#define idle_mode_B_no_w 255
+
+#endif
+
+
 
 int multiplayer=0;
 
@@ -47,7 +92,7 @@ enum strip {
 #define CONFIG_PIN_BLUE  13  // For RGB(W) //D7
 #endif
 
-#ifdef use_pinD3
+#ifdef use_pinD3_not8
 #define CONFIG_PIN_WHITE 0 // For BRIGHTNESS and RGBW //D3
 #else
 #define CONFIG_PIN_WHITE 15  // For BRIGHTNESS and RGBW //D8
